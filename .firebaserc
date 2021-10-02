@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "proyecto-de-taller-de-sisinfo": {
+      "hosting": {
+        "Proyecto-Angular": [
+          "proyecto-de-taller-de-sisinfo"
+        ]
+      }
+    }
+  }
+}
