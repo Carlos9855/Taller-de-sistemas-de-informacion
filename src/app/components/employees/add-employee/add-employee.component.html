@@ -1,0 +1,66 @@
+<form #employeeForm="ngForm" (ngSubmit)="saveEmployee(employeeForm)">
+    <div class="row">
+        <div class="col-md-6 columnsContainer">
+            <h1>Datos Personales</h1>
+
+                <div class="form-group">
+                    <label for="lastNameInput">Apellidos:</label>
+            
+                    <input 
+                        type="text" class="input-form" 
+                        name="LastName"
+                        #lastName="ngModel"
+                        [(ngModel)]="employeeService.selectedEmployee.lastName">
+                    </div>
+                <div class="form-group">
+                    <label for="nameInput">Nombre:</label>
+                    <input type="text" class="input-form" name="Name" #name="ngModel"
+                        [(ngModel)]="employeeService.selectedEmployee.name"> 
+                </div>
+                <div class="form-group">
+                    <label for="ciInput">CI:</label>
+                    <input type="text" class="input-form" name="Ci" #ci="ngModel"
+                    [(ngModel)]="employeeService.selectedEmployee.ci">
+                </div>
+                <div class="form-group">
+                    <label for="birthdayDateInput">Fecha de nacimiento:</label>
+                    <input type="date" class="input-form" name="BirthdayDate" #birthdayDate="ngModel"
+                    [(ngModel)]="employeeService.selectedEmployee.birthdayDate">
+                </div>
+                
+            
+
+        </div>
+
+        <div class="col-md-6 columnsContainer">
+            <h1>Contacto</h1>
+            <div class="form-group">
+                <label for="phoneInput">Telefono fijo:</label>
+                <input type="text" class="input-form" name="Phone" #phone="ngModel"
+                [(ngModel)]="employeeService.selectedEmployee.phone">
+                </div>
+            <div class="form-group">
+                <label for="emailInput">Correo Electronico:</label>
+                <input type="email" class="input-form" name="Email" #email="ngModel"
+                [(ngModel)]="employeeService.selectedEmployee.email">
+            </div>
+            <div class="form-group">
+                <label for="cellphoneInput">Celular:</label>
+                <input type="text" class="input-form" name="Cellphone" #cellphone="ngModel"
+                [(ngModel)]="employeeService.selectedEmployee.cellphone">
+            </div>
+            <div class="form-group">
+                <label for="addressInput">Direccion:</label>
+                <input type="text" class="input-form" name="Address" #address="ngModel"
+                [(ngModel)]="employeeService.selectedEmployee.address">
+            </div>
+        
+
+            <div class="div-button">
+                <button type="submit" class="btn btn-add-employee">GUARDAR</button>
+            </div>
+            
+        </div>
+
+    </div>
+</form>
