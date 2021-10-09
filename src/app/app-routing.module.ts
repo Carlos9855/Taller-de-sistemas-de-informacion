@@ -15,7 +15,7 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
   },
   { path: 'add-employee', component: AddEmployeeComponent },
-  { path: 'view-employee', component: ViewEmployeeComponent },
+  { path: 'view-employees', component: ViewEmployeeComponent },
   {
     path: 'login',
     loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule)

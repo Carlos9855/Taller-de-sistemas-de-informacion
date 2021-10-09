@@ -11,11 +11,15 @@ export class EmployeeService {
   selectedEmployee: Employee = new Employee();
 
   constructor(public firebase: AngularFireDatabase) { 
-    this.productList = firebase.list('/employees')
+    this.productList = firebase.list('/employees');
   }
 
   insertProduct(employee: Employee){
     return this.productList.push(employee);
+  }
+
+  getEmployeesList(){
+    return this.productList.valueChanges();
   }
 
 }
