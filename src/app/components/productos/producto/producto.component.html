@@ -1,43 +1,39 @@
-<div class="card">
-    <div class="card-body">
-        <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
+<form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
+
+    <div class="row">
+        <div class="topContainer">
             <div class="form-group">
+                <label for="lastNameInput">Producto:</label>
                 <input 
                     type="text" 
-                    class="form-control" 
+                    class="input-form-producto" 
                     name="Producto"
                     #name="ngModel"
                     [(ngModel)]="productoService.selectedProduct.name"
                     placeholder="Nombre del producto"
                     >
             </div>
-
-            <div class="form-group">
-                <input 
+        
+            <div class="form-group-description">
+                <label for="lastNameInput">Descripcion:</label>
+                <textarea 
                     type="text" 
-                    class="form-control" 
+                    class="textarea-description" 
                     name="Descripcion"
                     #description="ngModel"
                     [(ngModel)]="productoService.selectedProduct.description"
                     placeholder="Descripcion del producto"
-                    >
+                    rows="3" 
+                    mdbInput></textarea>
             </div>
+        </div>
 
+        <div class="col-md-6 columnsContainer">
             <div class="form-group">
+                <label for="lastNameInput">Modelo:</label>
                 <input 
                     type="text" 
-                    class="form-control" 
-                    name="Precio"
-                    #price="ngModel"
-                    [(ngModel)]="productoService.selectedProduct.price"
-                    placeholder="Precio del producto"
-                    >
-            </div>
-
-            <div class="form-group">
-                <input 
-                    type="text" 
-                    class="form-control" 
+                    class="input-form-model" 
                     name="Modelo"
                     #model="ngModel"
                     [(ngModel)]="productoService.selectedProduct.model"
@@ -46,9 +42,50 @@
             </div>
 
             <div class="form-group">
+                <label for="lastNameInput">Precio:</label>
                 <input 
                     type="text" 
-                    class="form-control" 
+                    class="input-form" 
+                    name="Precio"
+                    #price="ngModel"
+                    [(ngModel)]="productoService.selectedProduct.price"
+                    placeholder="Precio del producto (Bs)"
+                    >
+            </div>
+        </div>
+
+        <div class="col-md-6 columnsContainer">
+            <div class="form-group">
+                <label for="lastNameInput">Codigo de producto:</label>
+                <input 
+                    type="text" 
+                    class="input-form" 
+                    name="Codigo"
+                    #code_product="ngModel"
+                    [(ngModel)]="productoService.selectedProduct.code_product"
+                    placeholder="Codigo"
+                    >
+            </div>
+        
+            <div class="form-group">
+                <label for="lastNameInput">Cantidad:</label>
+                <input 
+                    type="text" 
+                    class="input-form-cant" 
+                    name="Cantidad"
+                    #cant_product="ngModel"
+                    [(ngModel)]="productoService.selectedProduct.cant_product"
+                    placeholder="Cantidad"
+                    >
+            </div>
+        </div>
+
+        <div class="bottomContainer">
+            <div class="form-group">
+                <label for="lastNameInput">Categoria:</label>
+                <input 
+                    type="text" 
+                    class="input-form-category" 
                     name="Categoria"
                     #category="ngModel"
                     [(ngModel)]="productoService.selectedProduct.category"
@@ -56,15 +93,20 @@
                     >
             </div>
 
-            <div class="form-group">
+            <div class="div-button">
                 <button class="btn btn-primary" type="submit">
-                    <i class="fas"></i> Crear producto
+                    <i class="fas"></i> Guardar
                 </button>
                 <button class="btn btn-secundary" type="reset" (click)="resetForm(productForm)">
                     <i class="fas fa-sync-all"></i> Resetear
                 </button>
             </div>
+        </div>
 
-        </form>
+        
     </div>
-</div>
+    
+    
+    
+
+</form>

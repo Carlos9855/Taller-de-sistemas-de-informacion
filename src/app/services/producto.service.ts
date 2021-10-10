@@ -18,6 +18,7 @@ export class ProductoService {
   }
 
   insertProduct(product: Producto){
+    window.alert("Producto Guardado Correctamente");
     return this.productList.push(product);
   }
 
