@@ -20,5 +20,8 @@ export class ProductoService {
   insertProduct(product: Producto){
     return this.productList.push(product);
   }
+  getProductList(){
+    return this.productList.valueChanges();
+  }
 
 }
