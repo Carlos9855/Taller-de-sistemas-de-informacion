@@ -5,27 +5,26 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarColor01">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="nav-link active white-text" [routerLink]="['/home'] ">Home</a>
+    <div class="collapse navbar-collapse" id="navbarColor01" *ngIf="user$ | async as user">
+      <ul class="navbar-nav me-auto" >
+        <li class="nav-item dropdown" *ngIf="user">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">MENU</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" routerLink="/productos">Productos</a>
+            <a class="dropdown-item" routerLink="/register">Register</a>
+            <a class="dropdown-item" routerLink="/add-employee">Añadir Empleado</a>
+            <a class="dropdown-item" routerLink="/view-employees">Ver Empleados</a>
+            <a class="dropdown-item" routerLink="/create_products">Crear Producto</a>
+            <a class="dropdown-item" routerLink="/lista-productos">Lista de Productos</a>
+          </div>
         </li>
       </ul>
-      <ul class="navbar-nav " *ngIf="user$ | async as user">
+      <ul class="navbar-nav " >
         <li class="nav-item" *ngIf="!user" >
           <a class="nav-link white-text" routerLink="/login">Login</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link white-text" routerLink="/add-employee">Empleados</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link white-text" routerLink="/producto-menu-completo">Productos</a>
-        </li>
         <li class="nav-item" *ngIf="user">
           <a class="nav-link white-text" (click)="onLogout()" >logout</a>
-        </li>
-        <li class="nav-item" *ngIf="!user">
-          <a class="nav-link white-text" routerLink="/register">Register</a>
         </li>
         <li class="nav-item">
           <a class="nav-link white-text">{{user?.email}}</a>

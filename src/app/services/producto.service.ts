@@ -20,6 +20,7 @@ export class ProductoService {
   }
 
   insertProduct(product: Producto){
+    window.alert("Producto Guardado Correctamente");
     this.productList.push({
       nombre: product.nombre,
       categoria:product.categoria,
@@ -29,7 +30,8 @@ export class ProductoService {
     });
   }
 
-   updateProduct(product: Producto) {
+
+ updateProduct(product: Producto) {
     this.productList.update(product.$key, {
       nombre: product.nombre,
       categoria:product.categoria,

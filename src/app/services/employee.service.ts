@@ -7,15 +7,28 @@ import { Employee } from '../models/employee'
 })
 export class EmployeeService {
 
-  productList: AngularFireList<any>;
+  employeeList: AngularFireList<any>;
   selectedEmployee: Employee = new Employee();
 
   constructor(public firebase: AngularFireDatabase) { 
-    this.productList = firebase.list('/employees')
+    this.employeeList = firebase.list('/employees');
   }
 
   insertProduct(employee: Employee){
-    return this.productList.push(employee);
+    return this.employeeList.push(employee);
   }
+
+  getEmployeesList(){
+    return this.employeeList.valueChanges();
+  }
+
+  deleteEmployee(key){
+    this.employeeList.remove(key);
+  }
+
+  getKey(){
+    return this.employeeList.snapshotChanges();
+  }
+
 
 }
