@@ -21,10 +21,13 @@ import { ProductosComponent } from './components/productos/productos.component';
 import { ProductoComponent } from './components/productos/producto/producto.component'
 
 // SERVICIOS
-import { ProductoService } from './services/producto.service'
+import { ProductoService } from './services/producto.service';
+import { AddEmployeeComponent } from './components/employees/add-employee/add-employee.component'
+import { ViewEmployeeComponent } from './components/employees/view-employee/view-employee.component';
+import { ViewProductsComponent } from './components/productos/view-products/view-products.component';
 
 const routes: Routes = [
-  { path: 'productos', component: ProductoComponent }
+  { path: 'create_products', component: ProductoComponent }
 ]
 
 @NgModule({
@@ -33,6 +36,9 @@ const routes: Routes = [
     NavbarComponent,
     ProductosComponent,
     ProductoComponent,
+    AddEmployeeComponent,
+    ViewEmployeeComponent,
+    ViewProductsComponent
   ],
   imports: [
     BrowserModule,

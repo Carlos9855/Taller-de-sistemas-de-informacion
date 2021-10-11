@@ -18,7 +18,19 @@ export class ProductoService {
   }
 
   insertProduct(product: Producto){
+    window.alert("Producto Guardado Correctamente");
     return this.productList.push(product);
+  }
+  getProductList(){
+    return this.productList.valueChanges();
+  }
+
+  deleteProduct(key){
+    this.productList.remove(key);
+  }
+
+  getKey(){
+    return this.productList.snapshotChanges();
   }
 
 }

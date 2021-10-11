@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AddEmployeeComponent } from './components/employees/add-employee/add-employee.component';
+import { ViewEmployeeComponent } from './components/employees/view-employee/view-employee.component';
+import { ViewProductsComponent } from './components/productos/view-products/view-products.component';
 
 
 const routes: Routes = [
@@ -12,6 +15,9 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
   },
+  { path: 'add-employee', component: AddEmployeeComponent },
+  { path: 'view-employees', component: ViewEmployeeComponent },
+  { path: 'view-products', component: ViewProductsComponent },
   {
     path: 'login',
     loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule)
@@ -20,6 +26,7 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./auth/register/register.module').then(m => m.RegisterModule)
   }
+  
 ];
 
 @NgModule({
