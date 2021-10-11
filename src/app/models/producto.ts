@@ -5,4 +5,6 @@ export class Producto {
     price: number;
     model: string;
     category: string;
+    cant_product: string;
+    code_product: string;
 }

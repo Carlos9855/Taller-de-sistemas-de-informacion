@@ -24,7 +24,7 @@ import { AddEmployeeComponent } from './components/employees/add-employee/add-em
 import { ViewEmployeeComponent } from './components/employees/view-employee/view-employee.component';
 
 const routes: Routes = [
-  { path: 'productos', component: ProductoComponent }
+  { path: 'create_products', component: ProductoComponent }
 ]
 
 @NgModule({
