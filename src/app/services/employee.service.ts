@@ -22,4 +22,13 @@ export class EmployeeService {
     return this.employeeList.valueChanges();
   }
 
+  deleteEmployee(key){
+    this.employeeList.remove(key);
+  }
+
+  getKey(){
+    return this.employeeList.snapshotChanges();
+  }
+
+
 }

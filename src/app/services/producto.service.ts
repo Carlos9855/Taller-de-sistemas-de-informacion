@@ -25,4 +25,12 @@ export class ProductoService {
     return this.productList.valueChanges();
   }
 
+  deleteProduct(key){
+    this.productList.remove(key);
+  }
+
+  getKey(){
+    return this.productList.snapshotChanges();
+  }
+
 }

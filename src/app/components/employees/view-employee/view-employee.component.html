@@ -15,6 +15,9 @@
         <td>{{item.Ci}}</td>
         <td>{{item.Name}}</td>
         <td>{{item.LastName}}</td>
+        <td class="buttonCell">
+          <button class="delete-button" (click)="deleteEmployee(item.key)">Eliminar</button>
+        </td>
       </tr>
     </tbody>
   </table>
