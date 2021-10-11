@@ -13,14 +13,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 // COMPONENTES-PRODUCTOS
 import { ProductosComponent } from './components/productos/productos.component';
 import { ProductoComponent } from './components/productos/producto/producto.component'
+import { ListaProductosComponent } from './components/productos/lista-productos/lista-productos.component'
+import { AddEmployeeComponent } from './components/employees/add-employee/add-employee.component';
 
 // SERVICIOS
 import { ProductoService } from './services/producto.service';
-import { AddEmployeeComponent } from './components/employees/add-employee/add-employee.component'
+
 
 const routes: Routes = [
   { path: 'productos', component: ProductoComponent }
@@ -32,7 +35,8 @@ const routes: Routes = [
     NavbarComponent,
     ProductosComponent,
     ProductoComponent,
-    AddEmployeeComponent
+    AddEmployeeComponent,
+    ListaProductosComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,8 @@ const routes: Routes = [
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    BrowserAnimationsModule
   ],
   providers: [
     ProductoService

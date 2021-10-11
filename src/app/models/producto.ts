@@ -1,8 +1,8 @@
 export class Producto {
     $key: string;
-    name: string;
-    description: string;
-    price: number;
-    model: string;
-    category: string;
+    nombre: string;
+    descripcion: string;
+    precio: number;
+    modelo: string;
+    categoria: string;
 }
