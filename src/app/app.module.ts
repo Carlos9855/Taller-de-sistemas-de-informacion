@@ -21,6 +21,7 @@ import { ProductoComponent } from './components/productos/producto/producto.comp
 // SERVICIOS
 import { ProductoService } from './services/producto.service';
 import { AddEmployeeComponent } from './components/employees/add-employee/add-employee.component'
+import { ViewEmployeeComponent } from './components/employees/view-employee/view-employee.component';
 
 const routes: Routes = [
   { path: 'productos', component: ProductoComponent }
@@ -32,7 +33,8 @@ const routes: Routes = [
     NavbarComponent,
     ProductosComponent,
     ProductoComponent,
-    AddEmployeeComponent
+    AddEmployeeComponent,
+    ViewEmployeeComponent
   ],
   imports: [
     BrowserModule,

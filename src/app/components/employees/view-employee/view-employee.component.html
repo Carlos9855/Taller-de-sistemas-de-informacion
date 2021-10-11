@@ -1,1 +1,20 @@
-<p>view-employee works!</p>
+<h1>LISTA DE EMPLEADOS</h1>
+
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">CI</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let item of employees | async ;let index=index">
+      <tr>
+        <th scope="row">{{index+1}}</th>
+        <td>{{item.Ci}}</td>
+        <td>{{item.Name}}</td>
+        <td>{{item.LastName}}</td>
+      </tr>
+    </tbody>
+  </table>

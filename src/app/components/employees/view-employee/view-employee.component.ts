@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { EmployeeService } from 'src/app/services/employee.service';
+
+
+
 
 @Component({
   selector: 'app-view-employee',
@@ -7,9 +12,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewEmployeeComponent implements OnInit {
 
-  constructor() { }
+  employees: Observable<any[]>;
+  constructor(public employeeService: EmployeeService) {
+     this.employees = this.employeeService.getEmployeesList();
+    }
 
   ngOnInit(): void {
+
   }
 
 }
