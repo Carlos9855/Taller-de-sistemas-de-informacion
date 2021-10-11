@@ -2,19 +2,37 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule} from '@angular/core';
 
+import { FormsModule } from '@angular/forms';
+
+// RUTAS
 import { AppRoutingModule } from './app-routing.module';
+import { RouterModule, Routes } from '@angular/router'
+
 import { AppComponent } from './app.component';
-import { ReactiveFormsModule } from '@angular/forms'
-import { AngularFireAuthModule } from '@angular/fire/auth'
+import { ReactiveFormsModule } from '@angular/forms';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database'
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 
+// COMPONENTES-PRODUCTOS
+import { ProductosComponent } from './components/productos/productos.component';
+import { ProductoComponent } from './components/productos/producto/producto.component'
+
+// SERVICIOS
+import { ProductoService } from './services/producto.service'
+
+const routes: Routes = [
+  { path: 'productos', component: ProductoComponent }
+]
+
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
+    ProductosComponent,
+    ProductoComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,9 +41,13 @@ import { environment } from 'src/environments/environment';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [
+    ProductoService
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
