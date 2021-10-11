@@ -21,5 +21,8 @@ export class ProductoService {
     window.alert("Producto Guardado Correctamente");
     return this.productList.push(product);
   }
+  getProductList(){
+    return this.productList.valueChanges();
+  }
 
 }
