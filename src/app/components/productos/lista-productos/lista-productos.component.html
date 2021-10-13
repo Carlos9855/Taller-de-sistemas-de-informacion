@@ -12,11 +12,11 @@
                     <td class="text-center">Opciones</td>
                 </tr>
                 <tr *ngFor= "let producto of listaProductos">
-                    <td class="text-center">{{producto.nombre}}</td>
-                    <td class="text-center">{{producto.descripcion}}</td>
-                    <td class="text-center">{{producto.modelo}}</td>
-                    <td class="text-center">{{producto.categoria}}</td>
-                    <td class="text-center">{{producto.precio}}</td>           
+                    <td class="text-center">{{producto.Producto}}</td>
+                    <td class="text-center">{{producto.Descripcion}}</td>
+                    <td class="text-center">{{producto.Modelo}}</td>
+                    <td class="text-center">{{producto.Categoria}}</td>
+                    <td class="text-center">{{producto.Precio}}</td>           
                     <td class="text-center">
                         <a class="btn btn-primary text-white btn-sm" (click)="onEdit(producto)">
                             <i class="far fa-edit"></i>

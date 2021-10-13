@@ -20,24 +20,24 @@ export class ProductoService {
   }
 
   insertProduct(product: Producto){
-    window.alert("Producto Guardado Correctamente");
     this.productList.push({
-      nombre: product.nombre,
-      categoria:product.categoria,
-      precio:product.precio,
-      modelo:product.modelo,
-      descripcion:product.descripcion
+      Producto: product.Producto,
+      Categoria:product.Categoria,
+      Precio:product.Precio,
+      Modelo:product.Modelo,
+      Descripcion:product.Descripcion
     });
+    window.alert("Producto Guardado Correctamente");
   }
 
 
  updateProduct(product: Producto) {
     this.productList.update(product.$key, {
-      nombre: product.nombre,
-      categoria:product.categoria,
-      precio:product.precio,
-      modelo:product.modelo,
-      descripcion:product.descripcion
+      Producto: product.Producto,
+      Categoria:product.Categoria,
+      Precio:product.Precio,
+      Modelo:product.Modelo,
+      Descripcion:product.Descripcion
     });
    }
 

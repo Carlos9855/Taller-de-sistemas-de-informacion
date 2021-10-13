@@ -1,10 +1,10 @@
 export class Producto {
     $key: string;
-    nombre: string;
-    descripcion: string;
-    precio: number;
-    modelo: string;
-    categoria: string;
+    Producto: string;
+    Descripcion: string;
+    Precio: number;
+    Modelo: string;
+    Categoria: string;
     //cantidad:string
     /*name: string;
     description: string;
