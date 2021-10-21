@@ -41,7 +41,6 @@ export class ViewProductsComponent implements OnInit{
   }
 
 
-
   editProduct(item){
 
     this.productService.selectedProduct.$key = item.key;
