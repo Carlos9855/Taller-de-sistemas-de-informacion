@@ -15,20 +15,16 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database'
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 // COMPONENTES-PRODUCTOS
 import { ProductosComponent } from './components/productos/productos.component';
-import { ProductoComponent } from './components/productos/producto/producto.component';
-import { ListaProductosComponent } from './components/productos/lista-productos/lista-productos.component';
-import { AddEmployeeComponent } from './components/employees/add-employee/add-employee.component';
-import { ViewEmployeeComponent } from './components/employees/view-employee/view-employee.component';
-
+import { ProductoComponent } from './components/productos/producto/producto.component'
 
 // SERVICIOS
 import { ProductoService } from './services/producto.service';
-
-
+import { AddEmployeeComponent } from './components/employees/add-employee/add-employee.component'
+import { ViewEmployeeComponent } from './components/employees/view-employee/view-employee.component';
+import { ViewProductsComponent } from './components/productos/view-products/view-products.component';
 
 const routes: Routes = [
   { path: 'create_products', component: ProductoComponent }
@@ -42,7 +38,7 @@ const routes: Routes = [
     ProductoComponent,
     AddEmployeeComponent,
     ViewEmployeeComponent,
-    ListaProductosComponent
+    ViewProductsComponent
   ],
   imports: [
     BrowserModule,
@@ -53,8 +49,7 @@ const routes: Routes = [
     AngularFireDatabaseModule,
     AngularFirestoreModule,
     FormsModule,
-    RouterModule.forRoot(routes),
-    BrowserAnimationsModule
+    RouterModule.forRoot(routes)
   ],
   providers: [
     ProductoService
