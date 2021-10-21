@@ -16,17 +16,24 @@ export class ProductoComponent implements OnInit {
 
   constructor(public productoService: ProductoService) { }
 
-  ngOnInit(): void {
-    
+  ngOnInit() {
+    this.productoService.getProducts();
+    this.resetForm();
   }
 
   onSubmit(productForm: NgForm)
   {
-    this.productoService.insertProduct(productForm.value);
+   if(productForm.value.$key!=null){
+      this.productoService.updateProduct(productForm.value); 
+   } 
+    else{
+      this.productoService.insertProduct(productForm.value);
+   }
+      
     this.resetForm(productForm);
   }
 
-  resetForm(productForm: NgForm)
+  resetForm(productForm?: NgForm)
   {
     if(productForm != null)
       productForm.reset();
