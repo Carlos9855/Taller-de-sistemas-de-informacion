@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 // SERVICIO
@@ -6,30 +6,56 @@ import { ProductoService } from '../../../services/producto.service';
 
 // CLASE PRODUCTO
 import { Producto } from '../../../models/producto';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-producto',
   templateUrl: './producto.component.html',
   styleUrls: ['./producto.component.scss']
 })
-export class ProductoComponent implements OnInit {
+export class ProductoComponent implements OnInit{
+  
 
-  constructor(public productoService: ProductoService) { }
+  constructor(
+    public productoService: ProductoService,
+    private router: Router
+    ) { }
 
-  ngOnInit(): void {
-    
+  ngOnInit() {
   }
 
   onSubmit(productForm: NgForm)
   {
-    this.productoService.insertProduct(productForm.value);
+    
+    if(this.productoService.selectedProduct.$key != null){
+     
+      //  productForm.value.$key = this.productoService.selectedProduct.$key;
+      console.log(productForm.value.$key);
+      console.log(productForm.value.description);
+      console.log(productForm.value.price);
+      console.log(productForm.value.category);
+        this.productoService.updateProduct(this.productoService.selectedProduct.$key,productForm.value); 
+    } 
+    else{
+        this.productoService.insertProduct(productForm.value);
+    }
     this.resetForm(productForm);
   }
 
-  resetForm(productForm: NgForm)
+  goToViewProducts(){
+    this.resetForm();
+    this.router.navigate(['/view-products']);
+  }
+
+  resetForm(productForm?: NgForm)
   {
-    if(productForm != null)
+    if(productForm!=null)
+    {
       productForm.reset();
+    }
       this.productoService.selectedProduct = new Producto();
   }
+
+
 }
