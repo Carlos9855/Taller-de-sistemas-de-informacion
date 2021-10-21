@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import { BehaviorSubject } from 'rxjs';
 
 import { Producto } from '../models/producto'
 
@@ -31,6 +32,12 @@ export class ProductoService {
 
   getKey(){
     return this.productList.snapshotChanges();
+  }
+
+  updateProduct(key:string, product: Producto)
+  {
+    this.productList.update(key,product);
+    //this.productList.update(product.$key,product);
   }
 
 }

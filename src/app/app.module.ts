@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule} from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
+import { AgGridModule } from 'ag-grid-angular';
+
 
 // RUTAS
 import { AppRoutingModule } from './app-routing.module';
@@ -17,7 +19,6 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 
 // COMPONENTES-PRODUCTOS
-import { ProductosComponent } from './components/productos/productos.component';
 import { ProductoComponent } from './components/productos/producto/producto.component'
 
 // SERVICIOS
@@ -27,14 +28,13 @@ import { ViewEmployeeComponent } from './components/employees/view-employee/view
 import { ViewProductsComponent } from './components/productos/view-products/view-products.component';
 
 const routes: Routes = [
-  { path: 'create_products', component: ProductoComponent }
+  { path: 'create-products', component: ProductoComponent }
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    ProductosComponent,
     ProductoComponent,
     AddEmployeeComponent,
     ViewEmployeeComponent,
@@ -49,7 +49,8 @@ const routes: Routes = [
     AngularFireDatabaseModule,
     AngularFirestoreModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    AgGridModule.withComponents([]),
   ],
   providers: [
     ProductoService
