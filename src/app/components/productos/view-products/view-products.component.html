@@ -12,9 +12,15 @@
     <tbody *ngFor="let item of products | async ;let index=index">
       <tr>
         <th scope="row">{{index+1}}</th>
+<<<<<<< HEAD
         <td>{{item.Category}}</td>
         <td>{{item.Price}}</td>
         <td>{{item.Model}}</td>
+=======
+        <td>{{item.categoria}}</td>
+        <td>{{item.precio}}</td>
+        <td>{{item.modelo}}</td>
+>>>>>>> parent of bcf865e (fixed view products)
         <td class="buttonCell">
           <button class="delete-button" (click)="deleteProduct(item.key)">Eliminar</button>
         </td>
