@@ -37,7 +37,9 @@ export class ViewProductsComponent implements OnInit{
  
 
   deleteProduct(key){
-    this.productService.deleteProduct(key);
+    if(confirm('¿Seguro que desea eliminar este producto?')){
+      this.productService.deleteProduct(key);
+    }
   }
 
 
