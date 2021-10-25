@@ -31,10 +31,6 @@ export class ProductoComponent implements OnInit{
     if(this.productoService.selectedProduct.$key != null){
      
       //  productForm.value.$key = this.productoService.selectedProduct.$key;
-      console.log(productForm.value.$key);
-      console.log(productForm.value.description);
-      console.log(productForm.value.price);
-      console.log(productForm.value.category);
         this.productoService.updateProduct(this.productoService.selectedProduct.$key,productForm.value); 
     } 
     else{

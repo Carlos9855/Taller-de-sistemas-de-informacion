@@ -1,4 +1,4 @@
-<form #employeeForm="ngForm" (ngSubmit)="saveEmployee(employeeForm)">
+<form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
     <div class="row">
         <div class="col-md-6 columnsContainer">
             <h1>Datos Personales</h1>
@@ -9,23 +9,23 @@
                     <input 
                         type="text" class="input-form" 
                         name="LastName"
-                        #lastName="ngModel"
-                        [(ngModel)]="employeeService.selectedEmployee.lastName">
+                        #LastName="ngModel"
+                        [(ngModel)]="employeeService.selectedEmployee.LastName">
                     </div>
                 <div class="form-group">
                     <label for="nameInput">Nombre:</label>
-                    <input type="text" class="input-form" name="Name" #name="ngModel"
-                        [(ngModel)]="employeeService.selectedEmployee.name"> 
+                    <input type="text" class="input-form" name="Name" #Name="ngModel"
+                        [(ngModel)]="employeeService.selectedEmployee.Name"> 
                 </div>
                 <div class="form-group">
                     <label for="ciInput">CI:</label>
-                    <input type="text" class="input-form" name="Ci" #ci="ngModel"
-                    [(ngModel)]="employeeService.selectedEmployee.ci">
+                    <input type="text" class="input-form" name="Ci" #Ci="ngModel"
+                    [(ngModel)]="employeeService.selectedEmployee.Ci">
                 </div>
                 <div class="form-group">
                     <label for="birthdayDateInput">Fecha de nacimiento:</label>
-                    <input type="date" class="input-form" name="BirthdayDate" #birthdayDate="ngModel"
-                    [(ngModel)]="employeeService.selectedEmployee.birthdayDate">
+                    <input type="date" class="input-form" name="BirthdayDate" #BirthdayDate="ngModel"
+                    [(ngModel)]="employeeService.selectedEmployee.BirthdayDate">
                 </div>
                 
             
@@ -36,28 +36,29 @@
             <h1>Contacto</h1>
             <div class="form-group">
                 <label for="phoneInput">Telefono fijo:</label>
-                <input type="text" class="input-form" name="Phone" #phone="ngModel"
-                [(ngModel)]="employeeService.selectedEmployee.phone">
+                <input type="text" class="input-form" name="Phone" #Phone="ngModel"
+                [(ngModel)]="employeeService.selectedEmployee.Phone">
                 </div>
             <div class="form-group">
                 <label for="emailInput">Correo Electronico:</label>
-                <input type="email" class="input-form" name="Email" #email="ngModel"
-                [(ngModel)]="employeeService.selectedEmployee.email">
+                <input type="email" class="input-form" name="Email" #Email="ngModel"
+                [(ngModel)]="employeeService.selectedEmployee.Email">
             </div>
             <div class="form-group">
                 <label for="cellphoneInput">Celular:</label>
-                <input type="text" class="input-form" name="Cellphone" #cellphone="ngModel"
-                [(ngModel)]="employeeService.selectedEmployee.cellphone">
+                <input type="text" class="input-form" name="Cellphone" #Cellphone="ngModel"
+                [(ngModel)]="employeeService.selectedEmployee.Cellphone">
             </div>
             <div class="form-group">
                 <label for="addressInput">Direccion:</label>
-                <input type="text" class="input-form" name="Address" #address="ngModel"
-                [(ngModel)]="employeeService.selectedEmployee.address">
+                <input type="text" class="input-form" name="Address" #Address="ngModel"
+                [(ngModel)]="employeeService.selectedEmployee.Address">
             </div>
         
 
             <div class="div-button">
                 <button type="submit" class="btn btn-add-employee">GUARDAR</button>
+                <button (click)="goToViewEmployees()" class="btn btn-cancel">CANCELAR</button>
             </div>
             
         </div>

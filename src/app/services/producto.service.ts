@@ -20,14 +20,24 @@ export class ProductoService {
 
   insertProduct(product: Producto){
     window.alert("Producto Guardado Correctamente");
-    return this.productList.push(product);
+    return this.productList.push(
+      {
+        Name: product.Name,
+        Description: product.Description,
+        Price: product.Price,
+        Model: product.Model,
+        Category: product.Category,
+        Amount: product.Amount,
+        Code: product.Code,
+        IsVisible: true});
   }
+  
   getProductList(){
     return this.productList.valueChanges();
   }
 
   deleteProduct(key){
-    this.productList.remove(key);
+    this.productList.update(key,{IsVisible: false});
   }
 
   getKey(){
@@ -37,7 +47,6 @@ export class ProductoService {
   updateProduct(key:string, product: Producto)
   {
     this.productList.update(key,product);
-    //this.productList.update(product.$key,product);
   }
 
 }

@@ -1,11 +1,12 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Grid, GridOptions} from 'ag-grid-community';
 import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Producto } from 'src/app/models/producto';
 import { ProductoService } from 'src/app/services/producto.service';
+import { ConfirmationDialogComponent } from '../../confirmation-dialog/confirmation-dialog.component';
 
 
 
@@ -16,9 +17,10 @@ import { ProductoService } from 'src/app/services/producto.service';
 })
 export class ViewProductsComponent implements OnInit{
   products: Observable<any[]>;
-
+  productsEliminates: Producto;
   constructor(
-    public productService: ProductoService, 
+    public productService: ProductoService,
+    public dialog: MatDialog, 
     private router: Router
     ) 
   {
@@ -32,17 +34,24 @@ export class ViewProductsComponent implements OnInit{
 
   ngOnInit():void {
 
-   }
-
- 
-
-  deleteProduct(key){
-    this.productService.deleteProduct(key);
   }
 
+  deleteConfirmation(key: string){
+    this.dialog
+    .open(ConfirmationDialogComponent, {data: "¿Seguro que desea eliminar este producto?"})
+    .afterClosed()
+    .subscribe((confirm: Boolean) => {
+      if(confirm){
+        this.deleteProduct(key);
+      }
+    });
+  }
+
+  deleteProduct(key){
+      this.productService.deleteProduct(key);
+  }
 
   editProduct(item){
-
     this.productService.selectedProduct.$key = item.key;
     this.productService.selectedProduct.Description = item.Description;
     this.productService.selectedProduct.Model = item.Model;
@@ -52,7 +61,6 @@ export class ViewProductsComponent implements OnInit{
     this.productService.selectedProduct.Amount = item.Amount;
     this.productService.selectedProduct.Code = item.Code;
     this.router.navigate(['create-products']);
-
   }
 
 }

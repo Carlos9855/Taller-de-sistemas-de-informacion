@@ -5,22 +5,29 @@
     <thead class="thead-dark">
       <tr>
         <th scope="col">#</th>
+        <th scope="col">Producto</th>
         <th scope="col">Categoria</th>
         <th scope="col">Precio</th>
         <th scope="col">Modelo</th>
+        <th scope="col">Cantidad</th>
       </tr>
     </thead>
     <tbody *ngFor="let item of products | async ;let index=index">
-      <tr>
-        <th scope="row">{{index+1}}</th>
-        <td>{{item.Category}}</td>
-        <td>{{item.Price}}</td>
-        <td>{{item.Model}}</td>
-        <td class="buttonCell">
-          <button class="delete-button" (click)="deleteProduct(item.key)">Eliminar</button>
-          <button class="edit-button" (click)="editProduct(item)">Editar</button><!--Comentario-->
-        </td>
-      </tr>
+      <ng-container *ngIf="item.IsVisible==true">
+        <tr>
+          <th scope="row">{{index+1}}</th>
+          <td>{{item.Name}}</td>
+          <td>{{item.Category}}</td>
+          <td>{{item.Price}}</td>
+          <td>{{item.Model}}</td>
+          <td>{{item.Amount}}</td>
+  
+          <td class="buttonCell">
+            <button class="delete-button" (click)="deleteConfirmation(item.key)">Eliminar</button>
+            <button class="edit-button" (click)="editProduct(item)">Editar</button><!--Comentario-->
+          </td>
+        </tr>
+      </ng-container>
     </tbody>
   </table>
 <button class="edit-button" routerLink="/create-products">+ Agregar Producto</button>

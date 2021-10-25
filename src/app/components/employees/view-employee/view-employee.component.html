@@ -1,26 +1,18 @@
-<div id="myGrid" style="height: 150px; width: 600px" class="ag-theme-alpine"></div>
-
-
 <h1>LISTA DE EMPLEADOS</h1>
+<div class="inputContainer">
+  <input type="text" class="inputClass" (keyup)="onQuickFilterChanged()" 
+  [(ngModel)]="quickSearchValue" placeholder="Busqueda rapida.. " /> 
+</div>
 
-  <table class="table table-bordered">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">CI</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Apellido</th>
-      </tr>
-    </thead>
-    <tbody *ngFor="let item of employees | async ;let index=index">
-      <tr>
-        <th scope="row">{{index+1}}</th>
-        <td>{{item.Ci}}</td>
-        <td>{{item.Name}}</td>
-        <td>{{item.LastName}}</td>
-        <td class="buttonCell">
-          <button class="delete-button" (click)="deleteEmployee(item.key)">Eliminar</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+
+<ag-grid-angular
+class="ag-theme-alpine"
+[rowData] = "employeesList"
+[columnDefs] = "columnDefs"
+[gridOptions] = "gridOptions"
+[frameworkComponents] = "frameworkComponents"
+></ag-grid-angular>
+
+<div class="addButtonContainer">
+  <button class="edit-button" routerLink="/add-employee">+ Agregar Empleado</button>
+</div>
