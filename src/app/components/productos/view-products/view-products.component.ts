@@ -16,13 +16,15 @@ import { ProductoService } from 'src/app/services/producto.service';
 })
 export class ViewProductsComponent implements OnInit{
   products: Observable<any[]>;
-
+  productsEliminates: Producto;
   constructor(
-    public productService: ProductoService, 
+    public productService: ProductoService,
+    //public productsEliminates: Producto, 
     private router: Router
     ) 
   {
     this.products = this.productService.getProductList();
+    //this.productsEliminates.eliminate = false;
     this.products = this.productService.getKey().pipe(
       map(changes => 
         changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
@@ -32,7 +34,7 @@ export class ViewProductsComponent implements OnInit{
 
   ngOnInit():void {
 
-   }
+  }
 
  
 
@@ -41,7 +43,6 @@ export class ViewProductsComponent implements OnInit{
       this.productService.deleteProduct(key);
     }
   }
-
 
   editProduct(item){
 

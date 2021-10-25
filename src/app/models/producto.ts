@@ -7,4 +7,5 @@ export class Producto {
     Category: string;
     Amount: number;
     Code: string;
+    IsVisible: boolean
 }
