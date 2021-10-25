@@ -26,6 +26,7 @@ import { ProductoService } from './services/producto.service';
 import { AddEmployeeComponent } from './components/employees/add-employee/add-employee.component'
 import { ViewEmployeeComponent } from './components/employees/view-employee/view-employee.component';
 import { ViewProductsComponent } from './components/productos/view-products/view-products.component';
+import { ControlpanelComponent } from './components/controlpanel/controlpanel.component';
 
 const routes: Routes = [
   { path: 'create-products', component: ProductoComponent }
@@ -38,7 +39,8 @@ const routes: Routes = [
     ProductoComponent,
     AddEmployeeComponent,
     ViewEmployeeComponent,
-    ViewProductsComponent
+    ViewProductsComponent,
+    ControlpanelComponent
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AddEmployeeComponent } from './components/employees/add-employee/add-employee.component';
 import { ViewEmployeeComponent } from './components/employees/view-employee/view-employee.component';
 import { ViewProductsComponent } from './components/productos/view-products/view-products.component';
-
+import { ControlpanelComponent } from './components/controlpanel/controlpanel.component';
 
 const routes: Routes = [
   {
@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'add-employee', component: AddEmployeeComponent },
   { path: 'view-employees', component: ViewEmployeeComponent },
   { path: 'view-products', component: ViewProductsComponent },
+  { path: 'control-panel', component:ControlpanelComponent},
   {
     path: 'login',
     loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule)
