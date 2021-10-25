@@ -27,12 +27,6 @@ import { AddEmployeeComponent } from './components/employees/add-employee/add-em
 import { ViewEmployeeComponent } from './components/employees/view-employee/view-employee.component';
 import { ViewProductsComponent } from './components/productos/view-products/view-products.component';
 
-// CONFIRMATION DIALOG
-import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
-import { MatDialogModule } from '@angular/material/dialog';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material/button';
-
 const routes: Routes = [
   { path: 'create-products', component: ProductoComponent }
 ]
@@ -44,8 +38,7 @@ const routes: Routes = [
     ProductoComponent,
     AddEmployeeComponent,
     ViewEmployeeComponent,
-    ViewProductsComponent,
-    ConfirmationDialogComponent
+    ViewProductsComponent
   ],
   imports: [
     BrowserModule,
@@ -58,14 +51,10 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes),
     AgGridModule.withComponents([]),
-    MatDialogModule, 
-    BrowserAnimationsModule, 
-    MatButtonModule,
   ],
   providers: [
     ProductoService
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ConfirmationDialogComponent]
 })
 export class AppModule { }
