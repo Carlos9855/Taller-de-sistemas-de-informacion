@@ -1,4 +1,4 @@
-<form #employeeForm="ngForm" (ngSubmit)="saveEmployee(employeeForm)">
+<form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
     <div class="row">
         <div class="col-md-6 columnsContainer">
             <h1>Datos Personales</h1>
@@ -10,22 +10,22 @@
                         type="text" class="input-form" 
                         name="LastName"
                         #lastName="ngModel"
-                        [(ngModel)]="employeeService.selectedEmployee.lastName">
+                        [(ngModel)]="employeeService.selectedEmployee.LastName">
                     </div>
                 <div class="form-group">
                     <label for="nameInput">Nombre:</label>
                     <input type="text" class="input-form" name="Name" #name="ngModel"
-                        [(ngModel)]="employeeService.selectedEmployee.name"> 
+                        [(ngModel)]="employeeService.selectedEmployee.Name"> 
                 </div>
                 <div class="form-group">
                     <label for="ciInput">CI:</label>
                     <input type="text" class="input-form" name="Ci" #ci="ngModel"
-                    [(ngModel)]="employeeService.selectedEmployee.ci">
+                    [(ngModel)]="employeeService.selectedEmployee.Ci">
                 </div>
                 <div class="form-group">
                     <label for="birthdayDateInput">Fecha de nacimiento:</label>
                     <input type="date" class="input-form" name="BirthdayDate" #birthdayDate="ngModel"
-                    [(ngModel)]="employeeService.selectedEmployee.birthdayDate">
+                    [(ngModel)]="employeeService.selectedEmployee.BirthdayDate">
                 </div>
                 
             
@@ -37,27 +37,28 @@
             <div class="form-group">
                 <label for="phoneInput">Telefono fijo:</label>
                 <input type="text" class="input-form" name="Phone" #phone="ngModel"
-                [(ngModel)]="employeeService.selectedEmployee.phone">
+                [(ngModel)]="employeeService.selectedEmployee.Phone">
                 </div>
             <div class="form-group">
                 <label for="emailInput">Correo Electronico:</label>
                 <input type="email" class="input-form" name="Email" #email="ngModel"
-                [(ngModel)]="employeeService.selectedEmployee.email">
+                [(ngModel)]="employeeService.selectedEmployee.Email">
             </div>
             <div class="form-group">
                 <label for="cellphoneInput">Celular:</label>
                 <input type="text" class="input-form" name="Cellphone" #cellphone="ngModel"
-                [(ngModel)]="employeeService.selectedEmployee.cellphone">
+                [(ngModel)]="employeeService.selectedEmployee.Cellphone">
             </div>
             <div class="form-group">
                 <label for="addressInput">Direccion:</label>
                 <input type="text" class="input-form" name="Address" #address="ngModel"
-                [(ngModel)]="employeeService.selectedEmployee.address">
+                [(ngModel)]="employeeService.selectedEmployee.Address">
             </div>
         
 
             <div class="div-button">
                 <button type="submit" class="btn btn-add-employee">GUARDAR</button>
+                <button (click)="goToViewEmployees()" class="btn btn-cancel">CANCELAR</button>
             </div>
             
         </div>

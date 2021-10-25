@@ -7,6 +7,7 @@ import { Employee } from 'src/app/models/employee';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { localeEs } from 'src/assets/locale.es.js';
 import { ConfirmationDialogComponent } from '../../confirmation-dialog/confirmation-dialog.component';
+import { Router } from '@angular/router';
 
 
 
@@ -28,6 +29,7 @@ export class ViewEmployeeComponent implements OnInit {
   constructor(
     public employeeService: EmployeeService,
     public dialog: MatDialog)
+    private router: Router) 
      {
         this.employees = this.employeeService.getEmployeesList();
         this.employees = this.employeeService.getKey().pipe(
@@ -103,5 +105,17 @@ export class ViewEmployeeComponent implements OnInit {
       this.gridOptions.api.setQuickFilter(this.quickSearchValue);
   }
 
+    this.employeeService.selectedEmployee.$key = item.key;
+    this.employeeService.selectedEmployee.Ci = item.Ci;
+    this.employeeService.selectedEmployee.Name = item.Name;
+    this.employeeService.selectedEmployee.LastName = item.LastName;
+    this.employeeService.selectedEmployee.BirthdayDate = item.BirthdayDate;
+    this.employeeService.selectedEmployee.Phone = item.Phone;
+    this.employeeService.selectedEmployee.Email = item.Email;
+    this.employeeService.selectedEmployee.Cellphone = item.Cellphone;
+    this.employeeService.selectedEmployee.Address = item.Address;
+    this.router.navigate(['add-employee']);
+
+  }
 
 }

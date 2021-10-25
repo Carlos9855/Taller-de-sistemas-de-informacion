@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Employee } from 'src/app/models/employee';
 import { EmployeeService } from 'src/app/services/employee.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-employee',
   templateUrl: './add-employee.component.html',
@@ -10,7 +10,7 @@ import { EmployeeService } from 'src/app/services/employee.service';
 })
 export class AddEmployeeComponent implements OnInit {
 
-  constructor(public employeeService: EmployeeService) { }
+  constructor(public employeeService: EmployeeService ,private router: Router) {}
 
   ngOnInit(): void {
   }
@@ -21,11 +21,37 @@ export class AddEmployeeComponent implements OnInit {
     this.resetForm(employeeForm);
   }
 
+
+  onSubmit(employeeForm: NgForm)
+  {
+    
+    if(this.employeeService.selectedEmployee.$key != null){
+     
+      //  productForm.value.$key = this.productoService.selectedProduct.$key;
+      console.log(employeeForm.value.$key);
+      console.log(employeeForm.value.Name);
+      console.log(employeeForm.value.lastName);
+      console.log(employeeForm.value.phone);
+        this.employeeService.updateEmployee(this.employeeService.selectedEmployee.$key,employeeForm.value); 
+    } 
+    else{
+        this.employeeService.insertProduct(employeeForm.value);
+    }
+    this.resetForm(employeeForm);
+  }
+
+
+  goToViewEmployees(){
+    this.router.navigate(['/view-employees']);
+  }
   resetForm(employeeForm: NgForm)
   {
     if(employeeForm != null)
       employeeForm.reset();
       this.employeeService.selectedEmployee = new Employee();
   }
+
+  
+
 
 }

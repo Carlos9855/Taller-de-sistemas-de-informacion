@@ -29,8 +29,10 @@ class="ag-theme-alpine"
         <td>{{item.LastName}}</td>
         <td class="buttonCell">
           <button class="delete-button" (click)="deleteConfirmation(item.key)">Eliminar</button>
+          <button class="edit-button" (click)="editEmployee(item)">Editar</button><!--Comentario-->
         </td>
       </tr>
     </tbody>
   </table>
   <button class="edit-button" routerLink="/add-employee">+ Agregar Empleado</button>
+
