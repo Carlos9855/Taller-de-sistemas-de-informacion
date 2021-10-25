@@ -1,9 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Grid, GridOptions } from 'ag-grid-community';
+import { MatDialog } from '@angular/material/dialog';
+import { GridOptions } from 'ag-grid-community';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, filter} from 'rxjs/operators';
+import { Employee } from 'src/app/models/employee';
 import { EmployeeService } from 'src/app/services/employee.service';
+import { localeEs } from 'src/assets/locale.es.js';
+import { ConfirmationDialogComponent } from '../../confirmation-dialog/confirmation-dialog.component';
 import { Router } from '@angular/router';
+import { IconRendererComponent } from '../../icon-renderer/icon-renderer.component';
+import { Key } from 'selenium-webdriver';
 
 
 
@@ -14,66 +20,124 @@ import { Router } from '@angular/router';
 })
 export class ViewEmployeeComponent implements OnInit {
 
-  employees: Observable<any[]>;
-  public gridOptions: GridOptions
+  public gridOptions: GridOptions;
+  public rowData;
+  public columnDefs;
+  public employeesList: Employee [] = [];
+  public frameworkComponents: any;
+  public quickSearchValue: string = '';
+
   constructor(
     public employeeService: EmployeeService,
-    private router: Router
-     ) 
-     {
-     this.employees = this.employeeService.getEmployeesList();
-
-     this.employees = this.employeeService.getKey().pipe(
-      map(changes => 
-        changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-      )
-    )
-  }
+    public dialog: MatDialog,
+    private router: Router)
+     {}
 
   ngOnInit(): void {
-  /* this.loadData();
-    this.createGrid();*/
+    this.frameworkComponents = {
+      iconRenderer: IconRendererComponent,
+    };
+
+    this.getEmployeesData();
+    this.loadData();
   }
 
-  deleteEmployee(key){
+  deleteConfirmation(employeeInstance){
+    console.log(employeeInstance.rowData.IsVisible);
+    this.dialog
+    .open(ConfirmationDialogComponent, {data: "¿Seguro que desea eliminar este empleado?"})
+    .afterClosed()
+    .subscribe((confirm: Boolean) => {
+      if(confirm){
+        this.deleteEmployee(employeeInstance.rowData.key);
+      }
+    });
+  }
+
+  deleteEmployee(key: string){
     this.employeeService.deleteEmployee(key);
   }
 
-    loadData()
+
+  getEmployeesData(){
+    this.employeeService.getEmployeesList()
+    .subscribe( employee => {
+        this.employeesList = employee;
+    },
+    error => {
+      var errorMessage = error.message && error.status == 0 ? "Error al contactar al servidor" : error.error.message || "Error al cargar empleados";
+    });
+
+  }
+
+   loadData()
    {
-    this.gridOptions = {
-      columnDefs: [
-        { headerName: 'Make', field: 'make' },
-        { headerName: 'Model', field: 'model' },
-        { headerName: 'Price', field: 'price' }
-      ],
-      rowData: [
-        { make: 'Toyota', model: 'Celica', price: 35000 },
-        { make: 'Ford', model: 'Mondeo', price: 32000 },
-        { make: 'Porsche', model: 'Boxter', price: 72000 }
-      ]
-    };
+      this.gridOptions = {
+        domLayout: 'autoHeight',
+        pagination: true,
+        paginationPageSize: 20,
+        onGridReady: (params) => {
+          params.api.sizeColumnsToFit();
+          params.api.collapseAll();
+        },
+        onGridSizeChanged: (params) => {
+          params.api.collapseAll();
+        },
+        defaultColDef: {
+          resizable: true
+        },
+        localeTextFunc: (key: string, defaultValue: string) => localeEs[key] || defaultValue
+      }
+
+      this.columnDefs = [
+        { headerName: 'Ci', field: 'Ci', filter:true, sortable:true },
+        { headerName: 'Nombre', field: 'Name', filter:true, sortable:true },
+        { headerName: 'Apellido', field: 'LastName', filter:true, sortable:true },
+        { headerName: 'Celular', field: 'Cellphone', filter:true },
+        { headerName: 'Email', field: 'Email', filter:true},
+        { headerName: 'Direccion', field: 'Address', filter:true },
+        {
+          cellRenderer: 'iconRenderer',
+          cellRendererParams: {
+            onClick: this.editEmployee.bind(this),
+            icon: 'editar.png',
+            tooltip: 'Editar',
+            color: '#7AC074'
+          },
+          width: 80,
+          minWidth: 80
+        },
+        {
+          cellRenderer: 'iconRenderer',
+          cellRendererParams: {
+            onClick: this.deleteConfirmation.bind(this),
+            icon: 'eliminar.png',
+            tooltip: 'Eliminar',
+            color: '#CA8181'
+          },
+          width: 80,
+          minWidth: 80
+        },
+      ];
    }
 
 
- createGrid(){
-    let eGridDiv = document.querySelector('#myGrid') as HTMLElement;
-    new Grid(eGridDiv, this.gridOptions);
+  onQuickFilterChanged() {
+      this.gridOptions.api.setQuickFilter(this.quickSearchValue);
   }
 
   editEmployee(item){
 
-    this.employeeService.selectedEmployee.$key = item.key;
-    this.employeeService.selectedEmployee.Ci = item.Ci;
-    this.employeeService.selectedEmployee.Name = item.Name;
-    this.employeeService.selectedEmployee.LastName = item.LastName;
-    this.employeeService.selectedEmployee.BirthdayDate = item.BirthdayDate;
-    this.employeeService.selectedEmployee.Phone = item.Phone;
-    this.employeeService.selectedEmployee.Email = item.Email;
-    this.employeeService.selectedEmployee.Cellphone = item.Cellphone;
-    this.employeeService.selectedEmployee.Address = item.Address;
+    this.employeeService.selectedEmployee.$key = item.rowData.key;
+    this.employeeService.selectedEmployee.Ci = item.rowData.Ci;
+    this.employeeService.selectedEmployee.Name = item.rowData.Name;
+    this.employeeService.selectedEmployee.LastName = item.rowData.LastName;
+    this.employeeService.selectedEmployee.BirthdayDate = item.rowData.BirthdayDate;
+    this.employeeService.selectedEmployee.Phone = item.rowData.Phone;
+    this.employeeService.selectedEmployee.Email = item.rowData.Email;
+    this.employeeService.selectedEmployee.Cellphone = item.rowData.Cellphone;
+    this.employeeService.selectedEmployee.Address = item.rowData.Address;
     this.router.navigate(['add-employee']);
-
   }
 
 }

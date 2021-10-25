@@ -15,23 +15,11 @@ export class AddEmployeeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  saveEmployee(employeeForm: NgForm)
-  {
-    this.employeeService.insertProduct(employeeForm.value);
-    this.resetForm(employeeForm);
-  }
-
-
+  
   onSubmit(employeeForm: NgForm)
   {
-    
     if(this.employeeService.selectedEmployee.$key != null){
-     
       //  productForm.value.$key = this.productoService.selectedProduct.$key;
-      console.log(employeeForm.value.$key);
-      console.log(employeeForm.value.Name);
-      console.log(employeeForm.value.lastName);
-      console.log(employeeForm.value.phone);
         this.employeeService.updateEmployee(this.employeeService.selectedEmployee.$key,employeeForm.value); 
     } 
     else{
@@ -42,9 +30,10 @@ export class AddEmployeeComponent implements OnInit {
 
 
   goToViewEmployees(){
+    this.resetForm();
     this.router.navigate(['/view-employees']);
   }
-  resetForm(employeeForm: NgForm)
+  resetForm(employeeForm?: NgForm)
   {
     if(employeeForm != null)
       employeeForm.reset();
