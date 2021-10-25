@@ -26,6 +26,7 @@ import { ProductoService } from './services/producto.service';
 import { AddEmployeeComponent } from './components/employees/add-employee/add-employee.component'
 import { ViewEmployeeComponent } from './components/employees/view-employee/view-employee.component';
 import { ViewProductsComponent } from './components/productos/view-products/view-products.component';
+import { ControlpanelComponent } from './components/controlpanel/controlpanel.component';
 
 // CONFIRMATION DIALOG
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
@@ -46,6 +47,7 @@ const routes: Routes = [
     AddEmployeeComponent,
     ViewEmployeeComponent,
     ViewProductsComponent,
+    ControlpanelComponent,
     ConfirmationDialogComponent,
     IconRendererComponent
   ],
