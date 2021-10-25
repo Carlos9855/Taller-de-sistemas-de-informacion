@@ -9,3 +9,5 @@ export class Producto {
     Code: string;
     IsVisible: boolean
 }
+
+

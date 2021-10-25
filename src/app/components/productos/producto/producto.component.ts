@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./producto.component.scss']
 })
 export class ProductoComponent implements OnInit{
-  
+  selectedCategory: string;
 
   constructor(
     public productoService: ProductoService,
