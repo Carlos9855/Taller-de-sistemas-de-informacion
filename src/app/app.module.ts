@@ -32,6 +32,7 @@ import { ConfirmationDialogComponent } from './components/confirmation-dialog/co
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
+import { IconRendererComponent } from './components/icon-renderer/icon-renderer.component';
 
 const routes: Routes = [
   { path: 'create-products', component: ProductoComponent }
@@ -45,7 +46,8 @@ const routes: Routes = [
     AddEmployeeComponent,
     ViewEmployeeComponent,
     ViewProductsComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    IconRendererComponent
   ],
   imports: [
     BrowserModule,

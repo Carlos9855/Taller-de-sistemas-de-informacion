@@ -8,4 +8,5 @@ export class Employee {
     Email: string;
     Cellphone: number;
     Address: string;
+    IsVisible: boolean;
 }
