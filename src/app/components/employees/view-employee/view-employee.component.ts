@@ -23,6 +23,7 @@ export class ViewEmployeeComponent implements OnInit {
   public rowData;
   public columnDefs;
   public employeesList: Employee [] = [];
+  quickSearchValue: string = '';
 
   constructor(
     public employeeService: EmployeeService,
@@ -96,6 +97,11 @@ export class ViewEmployeeComponent implements OnInit {
       ];
       
    }
+
+
+  onQuickFilterChanged() {
+      this.gridOptions.api.setQuickFilter(this.quickSearchValue);
+  }
 
 
 }

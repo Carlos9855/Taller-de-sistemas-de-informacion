@@ -1,4 +1,7 @@
 
+<input type="text" (keyup)="onQuickFilterChanged()" 
+[(ngModel)]="quickSearchValue" placeholder="quick filter..." /> 
+
 <ag-grid-angular
 class="ag-theme-alpine"
 [rowData] = "employeesList"
