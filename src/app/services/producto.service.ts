@@ -20,16 +20,7 @@ export class ProductoService {
 
   insertProduct(product: Producto){
     window.alert("Producto Guardado Correctamente");
-    return this.productList.push(
-      {
-        Name: product.Name,
-        Description: product.Description,
-        Price: product.Price,
-        Model: product.Model,
-        Category: product.Category,
-        Amount: product.Amount,
-        Code: product.Code,
-        IsVisible: true});
+    return this.productList.push({Name: product.Name,Description: product.Description,Price: product.Price,Model: product.Model,Category: product.Category,Amount: product.Amount,Code: product.Code,IsVisible: true});
   }
   
   getProductList(){
@@ -38,6 +29,7 @@ export class ProductoService {
 
   deleteProduct(key){
     this.productList.update(key,{IsVisible: false});
+    //return this.selectedProduct.eliminate=true;
   }
 
   getKey(){
@@ -47,6 +39,7 @@ export class ProductoService {
   updateProduct(key:string, product: Producto)
   {
     this.productList.update(key,product);
+    //this.productList.update(product.$key,product);
   }
 
 }

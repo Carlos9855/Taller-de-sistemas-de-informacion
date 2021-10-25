@@ -1,14 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { GridOptions } from 'ag-grid-community';
+import { Grid, GridOptions } from 'ag-grid-community';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Employee } from 'src/app/models/employee';
 import { EmployeeService } from 'src/app/services/employee.service';
-import { localeEs } from 'src/assets/locale.es.js';
-import { ConfirmationDialogComponent } from '../../confirmation-dialog/confirmation-dialog.component';
 import { Router } from '@angular/router';
-
 
 
 
@@ -20,90 +15,53 @@ import { Router } from '@angular/router';
 export class ViewEmployeeComponent implements OnInit {
 
   employees: Observable<any[]>;
-  public gridOptions: GridOptions;
-  public rowData;
-  public columnDefs;
-  public employeesList: Employee [] = [];
-  quickSearchValue: string = '';
-
+  public gridOptions: GridOptions
   constructor(
     public employeeService: EmployeeService,
-    public dialog: MatDialog)
-    private router: Router) 
+    private router: Router
+     ) 
      {
-        this.employees = this.employeeService.getEmployeesList();
-        this.employees = this.employeeService.getKey().pipe(
-            map(changes => 
-              changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-          )
-        )
-    }
+     this.employees = this.employeeService.getEmployeesList();
+
+     this.employees = this.employeeService.getKey().pipe(
+      map(changes => 
+        changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+      )
+    )
+  }
 
   ngOnInit(): void {
-    this.getEmployeesData();
-    this.loadData();
+  /* this.loadData();
+    this.createGrid();*/
   }
 
-  deleteConfirmation(key: string){
-    this.dialog
-    .open(ConfirmationDialogComponent, {data: "¿Seguro que desea eliminar este empleado?"})
-    .afterClosed()
-    .subscribe((confirm: Boolean) => {
-      if(confirm){
-        this.deleteEmployee(key);
-      }
-    });
-  }
-
-  deleteEmployee(key: string){
+  deleteEmployee(key){
     this.employeeService.deleteEmployee(key);
   }
 
-
-  getEmployeesData(){
-    this.employeeService.getEmployeesList().subscribe( employee => {
-      this.employeesList = employee;
-    },
-    error => {
-      var errorMessage = error.message && error.status == 0 ? "Error al contactar al servidor" : error.error.message || "Error al cargar empleados";
-    });
-
-  }
-
-   loadData()
+    loadData()
    {
-      this.gridOptions = {
-        domLayout: 'autoHeight',
-        pagination: true,
-        paginationPageSize: 20,
-        onGridReady: (params) => {
-          params.api.sizeColumnsToFit();
-          params.api.collapseAll();
-        },
-        onGridSizeChanged: (params) => {
-          params.api.collapseAll();
-        },
-        defaultColDef: {
-          resizable: true
-        },
-        localeTextFunc: (key: string, defaultValue: string) => localeEs[key] || defaultValue
-      }
-
-      this.columnDefs = [
-        { headerName: 'Ci', field: 'Ci', filter:true, sortable:true },
-        { headerName: 'Nombre', field: 'Name', filter:true, sortable:true },
-        { headerName: 'Apellido', field: 'LastName', filter:true, sortable:true },
-        { headerName: 'Celular', field: 'Cellphone', filter:true },
-        { headerName: 'Email', field: 'Email', filter:true},
-        { headerName: 'Direccion', field: 'Address', filter:true },
-      ];
-      
+    this.gridOptions = {
+      columnDefs: [
+        { headerName: 'Make', field: 'make' },
+        { headerName: 'Model', field: 'model' },
+        { headerName: 'Price', field: 'price' }
+      ],
+      rowData: [
+        { make: 'Toyota', model: 'Celica', price: 35000 },
+        { make: 'Ford', model: 'Mondeo', price: 32000 },
+        { make: 'Porsche', model: 'Boxter', price: 72000 }
+      ]
+    };
    }
 
 
-  onQuickFilterChanged() {
-      this.gridOptions.api.setQuickFilter(this.quickSearchValue);
+ createGrid(){
+    let eGridDiv = document.querySelector('#myGrid') as HTMLElement;
+    new Grid(eGridDiv, this.gridOptions);
   }
+
+  editEmployee(item){
 
     this.employeeService.selectedEmployee.$key = item.key;
     this.employeeService.selectedEmployee.Ci = item.Ci;
