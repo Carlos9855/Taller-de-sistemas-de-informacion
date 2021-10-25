@@ -3,7 +3,7 @@ import { Grid, GridOptions } from 'ag-grid-community';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { EmployeeService } from 'src/app/services/employee.service';
-
+import { Router } from '@angular/router';
 
 
 
@@ -18,6 +18,7 @@ export class ViewEmployeeComponent implements OnInit {
   public gridOptions: GridOptions
   constructor(
     public employeeService: EmployeeService,
+    private router: Router
      ) 
      {
      this.employees = this.employeeService.getEmployeesList();
@@ -58,6 +59,21 @@ export class ViewEmployeeComponent implements OnInit {
  createGrid(){
     let eGridDiv = document.querySelector('#myGrid') as HTMLElement;
     new Grid(eGridDiv, this.gridOptions);
+  }
+
+  editEmployee(item){
+
+    this.employeeService.selectedEmployee.$key = item.key;
+    this.employeeService.selectedEmployee.Ci = item.Ci;
+    this.employeeService.selectedEmployee.Name = item.Name;
+    this.employeeService.selectedEmployee.LastName = item.LastName;
+    this.employeeService.selectedEmployee.BirthdayDate = item.BirthdayDate;
+    this.employeeService.selectedEmployee.Phone = item.Phone;
+    this.employeeService.selectedEmployee.Email = item.Email;
+    this.employeeService.selectedEmployee.Cellphone = item.Cellphone;
+    this.employeeService.selectedEmployee.Address = item.Address;
+    this.router.navigate(['add-employee']);
+
   }
 
 }

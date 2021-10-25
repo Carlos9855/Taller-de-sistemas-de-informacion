@@ -1,10 +1,11 @@
 export class Employee {
-    ci: number;
-    name: string;
-    lastName: string;
-    birthdayDate: Date;
-    phone: number;
-    email: string;
-    cellphone: number;
-    address: string;
+    $key: string;
+    Ci: number;
+    Name: string;
+    LastName: string;
+    BirthdayDate: Date;
+    Phone: number;
+    Email: string;
+    Cellphone: number;
+    Address: string;
 }
