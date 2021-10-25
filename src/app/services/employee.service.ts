@@ -30,5 +30,11 @@ export class EmployeeService {
     return this.employeeList.snapshotChanges();
   }
 
+  updateEmployee(key:string, employee: Employee)
+  {
+    this.employeeList.update(key,employee);
+    
+  }
+
 
 }
