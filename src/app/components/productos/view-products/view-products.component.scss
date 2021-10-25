@@ -2,8 +2,8 @@ h1{
     text-align: center;
     font-weight: 800;
     color: #3D3D3D;
-    padding-top: 3%;
-    padding-bottom: 3%;
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
 
 .buttonCell{
@@ -21,14 +21,36 @@ h1{
     background-color: #ca3838;
 }
 
-
 .edit-button{
-    background-color: #81ca8d;
+    background-color: #7AC074;
     color: rgb(255, 255, 255);
     margin-left: 1%;
+    border: none;
+    padding: 1%;
+    font-size: 1.5vw;
+    font-weight: 500;
+    border-radius: 1.5vw;
 }
 
 .edit-button:hover{
     color: rgb(255, 255, 255);
-    background-color: #38ca69;
+    background-color: #7AC074;
+}
+
+.addButtonContainer{
+    text-align: right;
+    padding-right: 1%;
+    padding-top: 1%;
+    margin-bottom: 3%;
+}
+
+.inputContainer{
+padding-bottom: 1%;
+}
+
+.inputClass{
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    padding-right: 30%;
 }

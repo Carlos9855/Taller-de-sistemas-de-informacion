@@ -9,7 +9,6 @@ import { localeEs } from 'src/assets/locale.es.js';
 import { ConfirmationDialogComponent } from '../../confirmation-dialog/confirmation-dialog.component';
 import { Router } from '@angular/router';
 import { IconRendererComponent } from '../../icon-renderer/icon-renderer.component';
-import { Key } from 'selenium-webdriver';
 
 
 
