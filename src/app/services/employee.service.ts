@@ -32,12 +32,8 @@ export class EmployeeService {
   }
 
   getEmployeesList():Observable<Employee[]>{
-      /*this.employees = this.employeeList.valueChanges().pipe(
-      map(employees => employees.filter(employee => employee.IsVisible == true))
-    );*/
     this.employees = this.employeeList.snapshotChanges().pipe(
-      map(changes => 
-      
+      map(changes =>   
         changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
         .filter(employee => employee.IsVisible == true),
       )

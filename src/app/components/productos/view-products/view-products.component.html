@@ -1,31 +1,20 @@
 
 <h1>LISTA DE PRODUCTOS</h1>
+<div class="inputContainer">
+  <input type="text" class="inputClass" (keyup)="onQuickFilterChanged()" 
+  [(ngModel)]="quickSearchValue" placeholder="Busqueda rapida.. " /> 
+</div>
 
-  <table class="table table-bordered">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Producto</th>
-        <th scope="col">Categoria</th>
-        <th scope="col">Precio</th>
-        <th scope="col">Modelo</th>
-        <th scope="col">Cantidad</th>
-      </tr>
-    </thead>
-    <tbody *ngFor="let item of products | async ;let index=index">
-      <ng-container *ngIf="item.IsVisible==true">
-        <tr>
-          <td>{{item.Name}}</td>
-          <td>{{item.Category}}</td>
-          <td>{{item.Price}}</td>
-          <td>{{item.Model}}</td>
-          <td>{{item.Amount}}</td>
-  
-          <td class="buttonCell">
-            <button class="delete-button" (click)="deleteConfirmation(item.key)">Eliminar</button>
-            <button class="edit-button" (click)="editProduct(item)">Editar</button><!--Comentario-->
-          </td>
-        </tr>
-      </ng-container>
-    </tbody>
-  </table>
-<button class="edit-button" routerLink="/create-products">+ Agregar Producto</button>
+
+<ag-grid-angular
+class="ag-theme-alpine"
+[rowData] = "productsList"
+[columnDefs] = "columnDefs"
+[gridOptions] = "gridOptions"
+[frameworkComponents] = "frameworkComponents"
+></ag-grid-angular>
+
+<div class="addButtonContainer">
+  <button class="edit-button" routerLink="/create-products">+ Agregar Producto</button>
+</div>
+
