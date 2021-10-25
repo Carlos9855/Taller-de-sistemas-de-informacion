@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 })
 export class ProductoComponent implements OnInit{
   
-
+  selectedCategory: string;
   constructor(
     public productoService: ProductoService,
     private router: Router

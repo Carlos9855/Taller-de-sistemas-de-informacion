@@ -44,7 +44,7 @@
               <label for="lastNameInput">Precio:</label>
               <input 
                   type="number"
-                  class="input-form" 
+                  class="input-form-price" 
                   name="Price"
                   #Price="ngModel"
                   [(ngModel)]="productoService.selectedProduct.Price"
@@ -58,7 +58,7 @@
               <label for="lastNameInput">Codigo de producto:</label>
               <input 
                   type="number"
-                  class="input-form" 
+                  class="input-form-code" 
                   name="Code"
                   #Code="ngModel"
                   [(ngModel)]="productoService.selectedProduct.Code"
@@ -78,17 +78,20 @@
       </div>
 
       <div class="bottomContainer">
-          <div class="form-group">
-              <label for="lastNameInput">Categoria:</label>
-              <input 
-                  type="text" 
-                  class="input-form-category" 
-                  name="Category"
-                  #Category="ngModel"
-                  [(ngModel)]="productoService.selectedProduct.Category"
-                 
-                  >
-          </div>
+        <div class="form-group">
+            <label for="lastNameInput">Categoria:</label>
+
+            <select 
+                type="text" 
+                class="input-form-category" 
+                name="Category"
+                #Category="ngModel"
+                [(ngModel)]="productoService.selectedProduct.Category">
+                <option value="Televisores">Televisores</option>
+                <option value="Cocinas">Cocinas</option>
+                <option value="Refrigeradores">Refrigeradores</option>
+            </select>
+        </div>
       </div>
   </div>
   
