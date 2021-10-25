@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-colors">
   <div class="container-fluid">
-    <a class="navbar-brand white-text" href="/">ADM-SOFT</a>
+    <a class="navbar-brand white-text" routerLink="/control-panel">ADM-SOFT</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarColor01" *ngIf="user$ | async as user">
       <ul class="navbar-nav me-auto" >
         <li class="nav-item white-text" *ngIf="user">
-          <a class="nav-link white-text" routerLink="/control-panel" >Panel de Control</a>
+         <!-- <a class="nav-link white-text" routerLink="/control-panel" >Panel de Control</a>-->
         </li>
         <!--<li class="nav-item dropdown" *ngIf="user">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">MENU</a>
@@ -23,9 +23,9 @@
         </li>-->
       </ul>
       <ul class="navbar-nav " >
-        <li class="nav-item" *ngIf="!user" >
+        <!--<li class="nav-item" *ngIf="!user" >
           <a class="nav-link white-text" routerLink="/login">Login</a>
-        </li>
+        </li>-->
         <li class="nav-item dropdown" *ngIf="user">
           <a class="nav-link white-text dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{user?.email}}</a>
           <div class="dropdown-menu">

@@ -22,8 +22,11 @@ export class RegisterComponent {
     const {email, password} = this.registerForm.value;
     try {
       const user = await this.authSvc.register(email, password);
-      if(user){
+     /* if(user){
         this.router.navigate(['/home']);
+      }*/
+      if(user){
+        this.router.navigate(['/control-panel']);
       }
     } catch (error) {
 
