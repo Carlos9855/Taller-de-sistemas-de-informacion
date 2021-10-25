@@ -1,4 +1,13 @@
-<div id="myGrid" style="height: 150px; width: 600px" class="ag-theme-alpine"></div>
+
+<input type="text" (keyup)="onQuickFilterChanged()" 
+[(ngModel)]="quickSearchValue" placeholder="quick filter..." /> 
+
+<ag-grid-angular
+class="ag-theme-alpine"
+[rowData] = "employeesList"
+[columnDefs] = "columnDefs"
+[gridOptions] = "gridOptions"
+></ag-grid-angular>
 
 
 <h1>LISTA DE EMPLEADOS</h1>
@@ -19,10 +28,11 @@
         <td>{{item.Name}}</td>
         <td>{{item.LastName}}</td>
         <td class="buttonCell">
-          <button class="delete-button" (click)="deleteEmployee(item.key)">Eliminar</button>
+          <button class="delete-button" (click)="deleteConfirmation(item.key)">Eliminar</button>
           <button class="edit-button" (click)="editEmployee(item)">Editar</button><!--Comentario-->
         </td>
       </tr>
     </tbody>
   </table>
   <button class="edit-button" routerLink="/add-employee">+ Agregar Empleado</button>
+
