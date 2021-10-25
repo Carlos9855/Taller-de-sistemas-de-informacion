@@ -75,11 +75,11 @@ export class ViewProductsComponent implements OnInit{
 
     this.columnDefs = [
       { headerName: 'Codigo', field: 'Code', filter:true, sortable:true },
-      { headerName: 'Nombre', field: 'Name', filter:true, sortable:true },
-      { headerName: 'Modelo', field: 'Model', filter:true, sortable:true },
+      { headerName: 'Nombre', field: 'Name', filter:true },
+      { headerName: 'Modelo', field: 'Model', filter:true},
       { headerName: 'Categoria', field: 'Category', filter:true },
-      { headerName: 'Precio', field: 'Price', filter:true},
-      { headerName: 'Cantidad', field: 'Amount', filter:true },
+      { headerName: 'Precio', field: 'Price', filter:true, sortable:true},
+      { headerName: 'Cantidad', field: 'Amount', filter:true, sortable:true },
       {
         cellRenderer: 'iconRenderer',
         cellRendererParams: {
