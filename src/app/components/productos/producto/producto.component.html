@@ -80,17 +80,16 @@
       <div class="bottomContainer">
         <div class="form-group">
             <label for="lastNameInput">Categoria:</label>
-
             <select 
                 type="text" 
                 class="input-form-category" 
                 name="Category"
                 #Category="ngModel"
                 [(ngModel)]="productoService.selectedProduct.Category">
-                <option value="Televisores">Televisores</option>
-                <option value="Cocinas">Cocinas</option>
-                <option value="Refrigeradores">Refrigeradores</option>
-                <option value="Equipos de Sonido">Equipos de Sonido</option>
+                    <option *ngFor="let category of categoryList"
+                        [value]="category.Name">
+                            {{ category.Name }}
+                    </option>
             </select>
         </div>
       </div>

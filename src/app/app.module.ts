@@ -20,13 +20,15 @@ import { environment } from 'src/environments/environment';
 
 // COMPONENTES-PRODUCTOS
 import { ProductoComponent } from './components/productos/producto/producto.component'
-
-// SERVICIOS
-import { ProductoService } from './services/producto.service';
 import { AddEmployeeComponent } from './components/employees/add-employee/add-employee.component'
 import { ViewEmployeeComponent } from './components/employees/view-employee/view-employee.component';
 import { ViewProductsComponent } from './components/productos/view-products/view-products.component';
 import { ControlpanelComponent } from './components/controlpanel/controlpanel.component';
+import { ViewAddCategoryComponent } from './components/categories/view-add-category/view-add-category.component';
+
+// SERVICIOS
+import { ProductoService } from './services/producto.service';
+
 
 // CONFIRMATION DIALOG
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
@@ -34,6 +36,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { IconRendererComponent } from './components/icon-renderer/icon-renderer.component';
+
 
 const routes: Routes = [
   { path: 'create-products', component: ProductoComponent }
@@ -49,7 +52,8 @@ const routes: Routes = [
     ViewProductsComponent,
     ControlpanelComponent,
     ConfirmationDialogComponent,
-    IconRendererComponent
+    IconRendererComponent,
+    ViewAddCategoryComponent
   ],
   imports: [
     BrowserModule,

@@ -26,4 +26,8 @@ export class ControlpanelComponent implements OnInit {
     this.router.navigate(['/view-employees']);
   }
 
+  goToCategoriesList(){
+    this.router.navigate(['/view-categories']);
+  }
+
 }
