@@ -6,8 +6,10 @@ import { ProductoService } from '../../../services/producto.service';
 
 // CLASE PRODUCTO
 import { Producto } from '../../../models/producto';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { Category } from 'src/app/models/category';
+import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
   selector: 'app-producto',
@@ -16,21 +18,32 @@ import { Router } from '@angular/router';
 })
 export class ProductoComponent implements OnInit{
   
-  selectedCategory: string;
+  public categoryList: Category[] = [];
+
   constructor(
     public productoService: ProductoService,
-    private router: Router
+    private router: Router,
+    public categoryService: CategoryService
     ) { }
 
   ngOnInit() {
+    this.getCategoryData()
   }
+
+  getCategoryData(){
+    this.categoryService.getCategoriesList()
+    .subscribe( product => {
+        this.categoryList = product;
+    },
+    error => {
+      var errorMessage = error.message && error.status == 0 ? "Error al contactar al servidor" : error.error.message || "Error al cargar empleados";
+    });   
+  }
+
 
   onSubmit(productForm: NgForm)
   {
-    
     if(this.productoService.selectedProduct.$key != null){
-     
-      //  productForm.value.$key = this.productoService.selectedProduct.$key;
         this.productoService.updateProduct(this.productoService.selectedProduct.$key,productForm.value); 
     } 
     else{
