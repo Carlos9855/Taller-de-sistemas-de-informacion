@@ -1,9 +1,47 @@
 
 <div class="buttonsContainer">
-    <div class="row">
-        <button (click)="goToProductList()"  class="btn btn-secondary">Lista de productos</button>
-        <button (click)="goToEmployeeList()"  class="btn btn-secondary">Lista de empleados</button>
-        <button (click)="goToCategoriesList()"  class="btn btn-secondary">Lista de categorias</button>
+    <div class="title-container">
+        <h1>PANEL DE CONTROL</h1>
+    </div>
+  
+    <div class="row panel-container">
+        <div class="col-md-4 ">
+            <div class="cardd product-card" (click)="goToProductList()">
+                <div class="image-container">
+                    <div class="image-icon product-icon">
+                    </div>
+                </div>
+                <div class="name-container product-name-container">
+                    <p class="name">Lista de Productos</p>
+                </div>
+            </div>
+         
+        </div>
+        <div class="col-md-4">
+            <div class="cardd employee-card" (click)="goToEmployeeList()">
+                <div class="image-container">
+                    <div class="image-icon employee-icon">
+                    </div>
+                </div>
+                <div class="name-container employee-name-container">
+                    <p class="name">Lista de Empleados</p>
+                </div>
+            </div>
+           </div>
+        <div class="col-md-4">
+            <div class="cardd category-card" (click)="goToCategoriesList()">
+                <div class="image-container">
+                    <div class="image-icon category-icon">
+                    </div>
+                </div>
+                <div class="name-container category-name-container">
+                    <p class="name">Lista de Categorias</p>
+                </div>
+            </div>
+
+            </div>
+
+
         <!--<button (click)="goToInventory()"  class="btn btn-secondary">Inventario</button>
         <button class="btn btn-secondary">Almacenes</button>-->
     </div>
