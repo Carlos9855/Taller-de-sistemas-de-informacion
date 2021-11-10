@@ -19,6 +19,8 @@ import { CategoryService } from 'src/app/services/category.service';
 export class ProductoComponent implements OnInit{
   
   public categoryList: Category[] = [];
+  public file: File;
+  public urlImage: Promise<string>;
 
   constructor(
     public productoService: ProductoService,
@@ -66,5 +68,13 @@ export class ProductoComponent implements OnInit{
       this.productoService.selectedProduct = new Producto();
   }
 
+
+  onUpload(e){
+    this.file = e.target.files[0];
+    console.log(this.file)
+    this.urlImage = this.productoService.uploadFile(this.file);
+    this.urlImage.then((a) => {console.log(a)})
+    this.urlImage.then((a) => {this.productoService.selectedProduct.UrlImage = a})
+ }
 
 }

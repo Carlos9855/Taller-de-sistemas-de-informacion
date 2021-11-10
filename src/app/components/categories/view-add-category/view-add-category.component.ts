@@ -149,6 +149,6 @@ export class ViewAddCategoryComponent implements OnInit {
      this.file = e.target.files[0];
      console.log(this.file)
      this.urlImage = this.categoryService.uploadFile(this.file);
-     this.urlImage.then((a) => {this.categoryService.selectedCategory.UrlImage = a})
+     this.urlImage.then((a) => {this.categoryService.selectedCategory.UrlImage = a});
   }
 }

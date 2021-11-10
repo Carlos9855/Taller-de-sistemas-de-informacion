@@ -1,20 +1,67 @@
 
-<h1>LISTA DE PRODUCTOS</h1>
-<div class="inputContainer">
-  <input type="text" class="inputClass" (keyup)="onQuickFilterChanged()" 
-  [(ngModel)]="quickSearchValue" placeholder="Busqueda rapida.. " /> 
+<div class="row">
+  <div class="col-8">
+    <div class="general-container">
+      <div class="title-container">
+        <h1>LISTA DE PRODUCTOS</h1>
+      </div>
+      
+      <div class="row search-container">
+        <div class="col-8">
+          <div class="inputContainer">
+            <!-- <label for="search-field" class="label-search">Buscar: </label> -->
+            <input type="text" name="search-field" class="inputClass" (keyup)="onQuickFilterChanged()" 
+            [(ngModel)]="quickSearchValue" placeholder="Busqueda rapida.. " /> 
+          </div>
+        </div>
+        <div class="col-4">
+        
+          <div class="addButtonContainer">
+            <button class="edit-button" routerLink="/create-products">+ Agregar Producto</button>
+          </div>
+        </div>
+      </div>
+  
+  
+      <ag-grid-angular
+        class="ag-theme-alpine"
+        [rowData] = "productsList"
+        [columnDefs] = "columnDefs"
+        [gridOptions] = "gridOptions"
+        [frameworkComponents] = "frameworkComponents"
+      ></ag-grid-angular>
+      
+    </div>
+  </div>
+
+
+  <div class="col-4">
+    <div class="information-container">
+      <div class="title-container botton-padd">
+        <h1>EMPLEADO</h1>
+      </div>
+      
+      <div class="data-container">
+        <p class="p-size"><span class="span-modifier">Nombre: </span>{{this.productService.selectedProduct.Name}}</p>
+        <p class="p-size"><span class="span-modifier">Marca: </span>{{this.productService.selectedProduct.Brand}}</p>
+        <p class="p-size"><span class="span-modifier">Modelo: </span>{{this.productService.selectedProduct.Model}}</p>
+        <p class="p-size"><span class="span-modifier">Codigo: </span>{{this.productService.selectedProduct.Code}}</p>
+        <p class="p-size"><span class="span-modifier">Precio: </span>{{this.productService.selectedProduct.Price}}</p>
+        <p class="p-size"><span class="span-modifier">Categoria: </span>{{this.productService.selectedProduct.Category}}</p>
+        <p class="p-size"><span class="span-modifier">Descripcion: </span>{{this.productService.selectedProduct.Description}}</p>
+        <p class="p-size"><span class="span-modifier">Cantidad: </span>{{this.productService.selectedProduct.Amount}}</p>
+      </div>
+
+      <div class="image-container">
+        <img src="{{this.productService.selectedProduct.UrlImage}}" alt="" width="50%" height="50%">
+    </div>
+
+    </div>
+  </div>
+
 </div>
+  
 
-
-<ag-grid-angular
-class="ag-theme-alpine"
-[rowData] = "productsList"
-[columnDefs] = "columnDefs"
-[gridOptions] = "gridOptions"
-[frameworkComponents] = "frameworkComponents"
-></ag-grid-angular>
-
-<div class="addButtonContainer">
-  <button class="edit-button" routerLink="/create-products">+ Agregar Producto</button>
-</div>
-
+    
+ 
+  

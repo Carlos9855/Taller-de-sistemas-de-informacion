@@ -75,6 +75,25 @@
                   #Amount="ngModel"
                   [(ngModel)]="productoService.selectedProduct.Amount"  >
           </div>
+
+          <div class="form-group">
+            <label for="Brand">Marca:</label>
+            <input 
+                type="text"
+                class="input-form-cant" 
+                name="Brand"
+                #Brand="ngModel"
+                [(ngModel)]="productoService.selectedProduct.Brand">
+        </div>
+
+        <div class="form-group">
+            <input type="hidden" class="input-form" [value] = "urlImage | async" name="UrlImage" #UrlImage="ngModel" 
+            [(ngModel)]="productoService.selectedProduct.UrlImage">
+        </div>
+        <div class="form-group">
+            <h5>Seleccionar imagen</h5>
+            <input type="file" accept=".png, .jpg" (change) = "onUpload($event)">
+        </div>
       </div>
 
       <div class="bottomContainer">
@@ -93,6 +112,8 @@
             </select>
         </div>
       </div>
+
+      
   </div>
   
   <div class="buttonsContainer">

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -14,9 +15,11 @@ export class ProductoService {
 
   productList: AngularFireList<any>;
   selectedProduct: Producto = new Producto();
-  products: Observable<any[]>
+  products: Observable<any[]>;
+  urlImage: string;
 
-  constructor(public firebase: AngularFireDatabase) { 
+  constructor(public firebase: AngularFireDatabase,
+    private storage: AngularFireStorage) { 
     this.productList = firebase.list('/productos')
   }
 
@@ -31,6 +34,8 @@ export class ProductoService {
         Category: product.Category,
         Amount: product.Amount,
         Code: product.Code,
+        Brand: product.Brand,
+        UrlImage: product.UrlImage,
         IsVisible: true});
   }
 
@@ -55,6 +60,16 @@ export class ProductoService {
   updateProduct(key:string, product: Producto)
   {
     this.productList.update(key,product);
+  }
+
+  async uploadFile(file: File):Promise<string>  {
+    if (file) {
+      const id = Math.random().toString(36).substring(2);
+      const filePath = `products-images/category_${id}`;
+      const task = await this.storage.upload(filePath, file);
+      const url = await task.ref.getDownloadURL();
+      return url;
+    } else {alert('Please select an image'); }
   }
 
 }

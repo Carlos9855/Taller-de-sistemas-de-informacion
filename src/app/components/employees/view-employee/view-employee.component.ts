@@ -17,7 +17,7 @@ import { IconRendererComponent } from '../../icon-renderer/icon-renderer.compone
   templateUrl: './view-employee.component.html',
   styleUrls: ['./view-employee.component.scss']
 })
-export class ViewEmployeeComponent implements OnInit {
+export class ViewEmployeeComponent implements OnInit{
 
   public gridOptions: GridOptions;
   public rowData;
@@ -40,6 +40,7 @@ export class ViewEmployeeComponent implements OnInit {
     this.getEmployeesData();
     this.loadData();
   }
+
 
   deleteConfirmation(employeeInstance){
     console.log(employeeInstance.rowData.IsVisible);
@@ -74,6 +75,7 @@ export class ViewEmployeeComponent implements OnInit {
       this.gridOptions = {
         domLayout: 'autoHeight',
         pagination: true,
+        
         paginationPageSize: 20,
         onGridReady: (params) => {
           params.api.sizeColumnsToFit();
@@ -94,14 +96,13 @@ export class ViewEmployeeComponent implements OnInit {
         { headerName: 'Apellido', field: 'LastName', filter:true, sortable:true },
         { headerName: 'Celular', field: 'Cellphone', filter:true },
         { headerName: 'Email', field: 'Email', filter:true},
-        { headerName: 'Direccion', field: 'Address', filter:true },
         {
           cellRenderer: 'iconRenderer',
           cellRendererParams: {
             onClick: this.editEmployee.bind(this),
             icon: 'editar.png',
             tooltip: 'Editar',
-            color: '#7AC074'
+            color: '#D7BD61'
           },
           width: 80,
           minWidth: 80
@@ -117,6 +118,17 @@ export class ViewEmployeeComponent implements OnInit {
           width: 80,
           minWidth: 80
         },
+        {
+          cellRenderer: 'iconRenderer',
+          cellRendererParams: {
+            onClick: this.getSingleEmployeeInformation.bind(this),
+            icon: 'view.png',
+            tooltip: 'Ver',
+            color: '#74c0bc'
+          },
+          width: 80,
+          minWidth: 80
+        },
       ];
    }
 
@@ -125,8 +137,8 @@ export class ViewEmployeeComponent implements OnInit {
       this.gridOptions.api.setQuickFilter(this.quickSearchValue);
   }
 
-  editEmployee(item){
 
+  getNewEmployeeInstance(item){
     this.employeeService.selectedEmployee.$key = item.rowData.key;
     this.employeeService.selectedEmployee.Ci = item.rowData.Ci;
     this.employeeService.selectedEmployee.Name = item.rowData.Name;
@@ -136,6 +148,15 @@ export class ViewEmployeeComponent implements OnInit {
     this.employeeService.selectedEmployee.Email = item.rowData.Email;
     this.employeeService.selectedEmployee.Cellphone = item.rowData.Cellphone;
     this.employeeService.selectedEmployee.Address = item.rowData.Address;
+  }
+
+  getSingleEmployeeInformation(employee){
+    this.getNewEmployeeInstance(employee);
+  }
+
+
+  editEmployee(item){
+    this.getNewEmployeeInstance(item);
     this.router.navigate(['add-employee']);
   }
 
