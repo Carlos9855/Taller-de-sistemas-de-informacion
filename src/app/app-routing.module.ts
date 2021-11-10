@@ -5,6 +5,7 @@ import { ViewEmployeeComponent } from './components/employees/view-employee/view
 import { ViewProductsComponent } from './components/productos/view-products/view-products.component';
 import { ControlpanelComponent } from './components/controlpanel/controlpanel.component';
 import { ViewAddCategoryComponent } from './components/categories/view-add-category/view-add-category.component';
+import { ViewGeneralInformationComponent } from './components/view-product/view-general-information/view-general-information/view-general-information.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'view-products', component: ViewProductsComponent },
   { path: 'control-panel', component:ControlpanelComponent},
   { path: 'view-categories', component:ViewAddCategoryComponent},
+  { path: 'view-details-of-product', component:ViewGeneralInformationComponent},
   {
     path: 'login',
     loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule)

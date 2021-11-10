@@ -102,6 +102,17 @@ export class ViewProductsComponent implements OnInit{
         width: 80,
         minWidth: 80
       },
+      {
+        cellRenderer: 'iconRenderer',
+        cellRendererParams: {
+          onClick: this.getSingleProductInformation.bind(this),
+          icon: 'view.png',
+          tooltip: 'Ver',
+          color: '#74c0bc'
+        },
+        width: 80,
+        minWidth: 80
+      },
     ];
   }
 
@@ -124,15 +135,26 @@ export class ViewProductsComponent implements OnInit{
     this.gridOptions.api.setQuickFilter(this.quickSearchValue);
 }
 
+
+getNewProductInstance(item){
+  this.productService.selectedProduct.$key = item.rowData.key;
+  this.productService.selectedProduct.Description = item.rowData.Description;
+  this.productService.selectedProduct.Model = item.rowData.Model;
+  this.productService.selectedProduct.Name = item.rowData.Name;
+  this.productService.selectedProduct.Price = item.rowData.Price;
+  this.productService.selectedProduct.Category = item.rowData.Category;
+  this.productService.selectedProduct.Amount = item.rowData.Amount;
+  this.productService.selectedProduct.Code = item.rowData.Code;
+  this.productService.selectedProduct.Brand = item.rowData.Brand;
+  this.productService.selectedProduct.UrlImage = item.rowData.UrlImage;
+}
+
+getSingleProductInformation(employee){
+  this.getNewProductInstance(employee);
+}
+
   editProduct(item){
-    this.productService.selectedProduct.$key = item.rowData.key;
-    this.productService.selectedProduct.Description = item.rowData.Description;
-    this.productService.selectedProduct.Model = item.rowData.Model;
-    this.productService.selectedProduct.Name = item.rowData.Name;
-    this.productService.selectedProduct.Price = item.rowData.Price;
-    this.productService.selectedProduct.Category = item.rowData.Category;
-    this.productService.selectedProduct.Amount = item.rowData.Amount;
-    this.productService.selectedProduct.Code = item.rowData.Code;
+    this.getNewProductInstance(item);
     this.router.navigate(['create-products']);
   }
 
