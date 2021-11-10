@@ -26,6 +26,7 @@ export class ViewProductsComponent implements OnInit{
   public productsList: Producto [] = [];
   public frameworkComponents: any;
   public quickSearchValue: string = '';
+  private gridColumnApi;
 
   constructor(
     public productService: ProductoService,
@@ -61,7 +62,7 @@ export class ViewProductsComponent implements OnInit{
       pagination: true,
       paginationPageSize: 20,
       onGridReady: (params) => {
-        params.api.sizeColumnsToFit();
+        params.columnApi.autoSizeAllColumns();
         params.api.collapseAll();
       },
       onGridSizeChanged: (params) => {
@@ -74,22 +75,25 @@ export class ViewProductsComponent implements OnInit{
     }
 
     this.columnDefs = [
-      { headerName: 'Codigo', field: 'Code', filter:true, sortable:true },
-      { headerName: 'Nombre', field: 'Name', filter:true },
       { headerName: 'Modelo', field: 'Model', filter:true},
-      { headerName: 'Categoria', field: 'Category', filter:true },
+      { headerName: 'Nombre', field: 'Name', filter:true },
       { headerName: 'Precio', field: 'Price', filter:true, sortable:true},
       { headerName: 'Cantidad', field: 'Amount', filter:true, sortable:true },
+      { headerName: 'Categoria', field: 'Category', filter:true },
+      { headerName: 'Marca', field: 'Brand', filter:true, sortable:true },
+      { headerName: 'Codigo', field: 'Code', filter:true, sortable:true },
+      { headerName: 'Descripcion', field: 'Description', filter:true, sortable:true },
       {
         cellRenderer: 'iconRenderer',
         cellRendererParams: {
           onClick: this.editProduct.bind(this),
           icon: 'editar.png',
           tooltip: 'Editar',
-          color: '#7AC074'
+          color: '#D7BD61'
         },
         width: 80,
-        minWidth: 80
+        minWidth: 80,
+        pinned: 'right'
       },
       {
         cellRenderer: 'iconRenderer',
@@ -100,7 +104,8 @@ export class ViewProductsComponent implements OnInit{
           color: '#CA8181'
         },
         width: 80,
-        minWidth: 80
+        minWidth: 80,
+        pinned: 'right'
       },
       {
         cellRenderer: 'iconRenderer',
@@ -111,7 +116,8 @@ export class ViewProductsComponent implements OnInit{
           color: '#74c0bc'
         },
         width: 80,
-        minWidth: 80
+        minWidth: 80,
+        pinned: 'right'
       },
     ];
   }
@@ -157,5 +163,4 @@ getSingleProductInformation(employee){
     this.getNewProductInstance(item);
     this.router.navigate(['create-products']);
   }
-
 }
