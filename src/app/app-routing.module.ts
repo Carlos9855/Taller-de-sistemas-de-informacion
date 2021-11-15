@@ -6,7 +6,9 @@ import { ViewProductsComponent } from './components/productos/view-products/view
 import { ControlpanelComponent } from './components/controlpanel/controlpanel.component';
 import { ViewAddCategoryComponent } from './components/categories/view-add-category/view-add-category.component';
 import { ViewGeneralInformationComponent } from './components/view-product/view-general-information/view-general-information/view-general-information.component';
-
+import { MenuCategoriasComponent } from './components/menu-categorias/menu-categorias.component';
+import { CategoriesSidebarComponent } from './components/categories/categories-sidebar/categories-sidebar.component';
+import { CategoriesMainMenuComponent } from './components/categories/categories-main-menu/categories-main-menu.component';
 const routes: Routes = [
   {
     path: '',
@@ -23,6 +25,9 @@ const routes: Routes = [
   { path: 'control-panel', component:ControlpanelComponent},
   { path: 'view-categories', component:ViewAddCategoryComponent},
   { path: 'view-details-of-product', component:ViewGeneralInformationComponent},
+  { path: 'menu-categorias',component:MenuCategoriasComponent},
+  { path: 'categories-menu',component:CategoriesMainMenuComponent},
+  { path: 'categories-sidenav',component:CategoriesSidebarComponent},
   {
     path: 'login',
     loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule)

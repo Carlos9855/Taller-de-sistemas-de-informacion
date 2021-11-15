@@ -25,6 +25,9 @@ import { ViewEmployeeComponent } from './components/employees/view-employee/view
 import { ViewProductsComponent } from './components/productos/view-products/view-products.component';
 import { ControlpanelComponent } from './components/controlpanel/controlpanel.component';
 import { ViewAddCategoryComponent } from './components/categories/view-add-category/view-add-category.component';
+import { CategoriesSidebarComponent } from './components/categories/categories-sidebar/categories-sidebar.component';
+import { CategoriesMainMenuComponent } from './components/categories/categories-main-menu/categories-main-menu.component';
+import { MenuCategoriasComponent } from './components/menu-categorias/menu-categorias.component';
 
 // SERVICIOS
 import { ProductoService } from './services/producto.service';
@@ -37,6 +40,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { IconRendererComponent } from './components/icon-renderer/icon-renderer.component';
 import { ViewGeneralInformationComponent } from './components/view-product/view-general-information/view-general-information/view-general-information.component';
+
+//SIDEBAR/CARD_MENU COMPONENTS
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list'
+import {MatListModule} from '@angular/material/list';
 
 
 const routes: Routes = [
@@ -55,7 +64,11 @@ const routes: Routes = [
     ConfirmationDialogComponent,
     IconRendererComponent,
     ViewAddCategoryComponent,
+    MenuCategoriasComponent,
+    CategoriesMainMenuComponent,
+    CategoriesSidebarComponent
     ViewGeneralInformationComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -71,6 +84,10 @@ const routes: Routes = [
     MatDialogModule, 
     BrowserAnimationsModule, 
     MatButtonModule,
+    MatCardModule,
+    MatSidenavModule,
+    MatGridListModule,
+    MatListModule
   ],
   providers: [
     ProductoService
