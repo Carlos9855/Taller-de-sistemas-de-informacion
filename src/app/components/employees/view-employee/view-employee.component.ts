@@ -76,7 +76,7 @@ export class ViewEmployeeComponent implements OnInit{
         domLayout: 'autoHeight',
         pagination: true,
         
-        paginationPageSize: 20,
+        paginationPageSize: 8,
         onGridReady: (params) => {
           params.columnApi.autoSizeAllColumns(false);
           params.api.collapseAll();
@@ -166,5 +166,7 @@ export class ViewEmployeeComponent implements OnInit{
     this.getNewEmployeeInstance(item);
     this.router.navigate(['add-employee']);
   }
+
+  
 
 }

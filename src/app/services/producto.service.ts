@@ -65,7 +65,7 @@ export class ProductoService {
   async uploadFile(file: File):Promise<string>  {
     if (file) {
       const id = Math.random().toString(36).substring(2);
-      const filePath = `products-images/category_${id}`;
+      const filePath = `products-images/product_${id}`;
       const task = await this.storage.upload(filePath, file);
       const url = await task.ref.getDownloadURL();
       return url;
