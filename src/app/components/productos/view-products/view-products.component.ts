@@ -9,6 +9,7 @@ import { ProductoService } from 'src/app/services/producto.service';
 import { ConfirmationDialogComponent } from '../../confirmation-dialog/confirmation-dialog.component';
 import { IconRendererComponent } from '../../icon-renderer/icon-renderer.component';
 import { localeEs } from 'src/assets/locale.es.js';
+import { ViewGeneralInformationComponent } from '../../view-product/view-general-information/view-general-information/view-general-information.component';
 
 
 
@@ -62,7 +63,8 @@ export class ViewProductsComponent implements OnInit{
       pagination: true,
       paginationPageSize: 20,
       onGridReady: (params) => {
-        params.columnApi.autoSizeAllColumns();
+        params.api.sizeColumnsToFit();
+        // params.columnApi.autoSizeAllColumns();
         params.api.collapseAll();
       },
       onGridSizeChanged: (params) => {
@@ -110,7 +112,7 @@ export class ViewProductsComponent implements OnInit{
       {
         cellRenderer: 'iconRenderer',
         cellRendererParams: {
-          onClick: this.getSingleProductInformation.bind(this),
+          onClick: this.showProductGeneralInformation.bind(this),
           icon: 'view.png',
           tooltip: 'Ver',
           color: '#74c0bc'
@@ -142,25 +144,36 @@ export class ViewProductsComponent implements OnInit{
 }
 
 
-getNewProductInstance(item){
-  this.productService.selectedProduct.$key = item.rowData.key;
-  this.productService.selectedProduct.Description = item.rowData.Description;
-  this.productService.selectedProduct.Model = item.rowData.Model;
-  this.productService.selectedProduct.Name = item.rowData.Name;
-  this.productService.selectedProduct.Price = item.rowData.Price;
-  this.productService.selectedProduct.Category = item.rowData.Category;
-  this.productService.selectedProduct.Amount = item.rowData.Amount;
-  this.productService.selectedProduct.Code = item.rowData.Code;
-  this.productService.selectedProduct.Brand = item.rowData.Brand;
-  this.productService.selectedProduct.UrlImage = item.rowData.UrlImage;
-}
+  getNewProductInstance(item){
+    this.productService.selectedProduct.$key = item.rowData.key;
+    this.productService.selectedProduct.Description = item.rowData.Description;
+    this.productService.selectedProduct.Model = item.rowData.Model;
+    this.productService.selectedProduct.Name = item.rowData.Name;
+    this.productService.selectedProduct.Price = item.rowData.Price;
+    this.productService.selectedProduct.Category = item.rowData.Category;
+    this.productService.selectedProduct.Amount = item.rowData.Amount;
+    this.productService.selectedProduct.Code = item.rowData.Code;
+    this.productService.selectedProduct.Brand = item.rowData.Brand;
+    this.productService.selectedProduct.UrlImage = item.rowData.UrlImage;
+  }
 
-getSingleProductInformation(employee){
-  this.getNewProductInstance(employee);
-}
+  getSingleProductInformation(product){
+    this.getNewProductInstance(product);
+  }
 
-  editProduct(item){
-    this.getNewProductInstance(item);
+  editProduct(product){
+    this.getNewProductInstance(product);
     this.router.navigate(['create-products']);
   }
+
+  showProductGeneralInformation(product){
+    this.dialog.open(ViewGeneralInformationComponent, 
+      {
+       data: product.rowData,
+       width: '100vw',
+       height: '90vh',
+      } );
+
+  }
+
 }
