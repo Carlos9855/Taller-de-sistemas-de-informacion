@@ -1,0 +1,95 @@
+.panel-container{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+
+.title-container{
+    text-align: center;
+    margin-top: 4%;
+}
+
+
+h1{
+    font-size: 4vw;
+    font-weight: 800;
+    color: rgb(102, 102, 102);
+  
+}
+
+
+
+.employee-card{
+    border-color: #66abd4;
+
+    .employee-name-container{
+        background-color: #66abd4;
+    }
+}
+
+.product-card{
+    border-color: #8b7168;
+
+    .product-name-container{
+        background-color: #8b7168;
+    }
+}
+
+.category-card{
+    border-color: #01b774;
+
+    .category-name-container{
+        background-color: #01b774;
+    }
+}
+
+.cardd{
+    background-color: rgb(255, 255, 255);
+    border-style: solid;
+    border-width: 10px;
+    margin-right: 2%;
+   
+    margin-left: 2%;
+    text-align: center;
+    border-radius: 20px;
+    margin-top: 12%;
+    cursor: pointer;
+
+    .image-container{
+        padding: 20% 20%;
+    }
+    
+    
+    .image-icon{
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-bottom: 100%;
+    }
+    
+    .employee-icon{
+        background-image: url('/assets/images/employee.png');
+    }
+    
+    .product-icon{
+        background-image: url('/assets/images/box.png');
+    }
+    .category-icon{
+        background-image: url('/assets/images/category.png');
+    }
+    
+    .name-container{
+       
+        padding-bottom: 5%;
+        padding-top: 10%;
+    }
+    
+    .name{
+      
+        font-size: 2vw;
+        color: #ffff;
+        font-weight: 600;
+    }
+    
+
+}
+

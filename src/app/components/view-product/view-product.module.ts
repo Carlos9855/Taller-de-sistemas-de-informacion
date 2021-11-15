@@ -5,9 +5,10 @@ import { ViewGeneralInformationComponent } from './view-general-information/view
 
 
 @NgModule({
-  declarations: [ViewGeneralInformationComponent],
+  declarations: [
+    ViewGeneralInformationComponent],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+  ],
 })
 export class ViewProductModule { }

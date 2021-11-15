@@ -39,6 +39,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { IconRendererComponent } from './components/icon-renderer/icon-renderer.component';
+import { ViewGeneralInformationComponent } from './components/view-product/view-general-information/view-general-information/view-general-information.component';
 
 //SIDEBAR/CARD_MENU COMPONENTS
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -66,6 +67,8 @@ const routes: Routes = [
     MenuCategoriasComponent,
     CategoriesMainMenuComponent,
     CategoriesSidebarComponent
+    ViewGeneralInformationComponent,
+
   ],
   imports: [
     BrowserModule,

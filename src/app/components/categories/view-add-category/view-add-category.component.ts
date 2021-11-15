@@ -86,7 +86,8 @@ export class ViewAddCategoryComponent implements OnInit {
             color: '#7AC074'
           },
           width: 80,
-          minWidth: 80
+          minWidth: 80,
+          pinned: 'right'
         },
         {
           cellRenderer: 'iconRenderer',
@@ -97,7 +98,8 @@ export class ViewAddCategoryComponent implements OnInit {
             color: '#CA8181'
           },
           width: 80,
-          minWidth: 80
+          minWidth: 80,
+          pinned: 'right'
         },
       ];
    }

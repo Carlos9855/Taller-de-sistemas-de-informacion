@@ -13,4 +13,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @import "ag-grid-community/dist/styles/ag-theme-balham.css";
 @import "ag-grid-community/dist/styles/ag-theme-balham-dark.css";
 @import "ag-grid-community/dist/styles/ag-theme-material.css";
-@import "~bootstrap/dist/css/bootstrap.css"
+@import "~bootstrap/dist/css/bootstrap.css";
+
+$yellow-color: #D7BD61;
+$green-color: #7AC074;
+$red-color: #CA8181;
+$blue-color: #74c0bc;

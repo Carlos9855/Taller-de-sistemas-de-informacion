@@ -76,9 +76,9 @@ export class ViewEmployeeComponent implements OnInit{
         domLayout: 'autoHeight',
         pagination: true,
         
-        paginationPageSize: 20,
+        paginationPageSize: 8,
         onGridReady: (params) => {
-          params.api.sizeColumnsToFit();
+          params.columnApi.autoSizeAllColumns(false);
           params.api.collapseAll();
         },
         onGridSizeChanged: (params) => {
@@ -91,11 +91,15 @@ export class ViewEmployeeComponent implements OnInit{
       }
 
       this.columnDefs = [
-        { headerName: 'Ci', field: 'Ci', filter:true, sortable:true },
+        { headerName: 'Ci', field: 'Ci', filter:true, sortable:true, width: 100, minWidth: 100},
         { headerName: 'Nombre', field: 'Name', filter:true, sortable:true },
         { headerName: 'Apellido', field: 'LastName', filter:true, sortable:true },
         { headerName: 'Celular', field: 'Cellphone', filter:true },
-        { headerName: 'Email', field: 'Email', filter:true},
+        { headerName: 'Correo electronico', field: 'Email', filter:true},
+        { headerName: 'Telefono', field: 'Phone', filter:true},
+        { headerName: 'Fecha de nacimiento', field: 'BirthdayDate', filter:true},
+        { headerName: 'Direccion', field: 'Address', filter:true},
+        
         {
           cellRenderer: 'iconRenderer',
           cellRendererParams: {
@@ -105,7 +109,8 @@ export class ViewEmployeeComponent implements OnInit{
             color: '#D7BD61'
           },
           width: 80,
-          minWidth: 80
+          minWidth: 80,
+          pinned: 'right'
         },
         {
           cellRenderer: 'iconRenderer',
@@ -116,7 +121,8 @@ export class ViewEmployeeComponent implements OnInit{
             color: '#CA8181'
           },
           width: 80,
-          minWidth: 80
+          minWidth: 80,
+          pinned: 'right'
         },
         {
           cellRenderer: 'iconRenderer',
@@ -127,7 +133,8 @@ export class ViewEmployeeComponent implements OnInit{
             color: '#74c0bc'
           },
           width: 80,
-          minWidth: 80
+          minWidth: 80,
+          pinned: 'right'
         },
       ];
    }
@@ -159,5 +166,7 @@ export class ViewEmployeeComponent implements OnInit{
     this.getNewEmployeeInstance(item);
     this.router.navigate(['add-employee']);
   }
+
+  
 
 }
