@@ -1,0 +1,11 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side" >
+        CATEGORIAS
+      <mat-nav-list *ngFor="let category of categoriesList">
+          <a (click)="goToSomePage()">{{category.Name}}</a><br>
+      </mat-nav-list>  
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <app-categories-main-menu (click)="sidenav.toggle()"></app-categories-main-menu>
+    </mat-sidenav-content>
+</mat-sidenav-container>

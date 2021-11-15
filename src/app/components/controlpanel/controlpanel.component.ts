@@ -13,21 +13,16 @@ export class ControlpanelComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  /*goToControlPanel(){
-    this.router.navigate(['/control-panel']);
-  }*/
   goToProductList(){
     this.router.navigate(['/view-products']);
   }
-  goToInventory(){
-    this.router.navigate(['/control-panel']);
+  goToCategoryMenu(){
+    this.router.navigate(['/categories-sidenav']);
   }
   goToEmployeeList(){
     this.router.navigate(['/view-employees']);
   }
-
   goToCategoriesList(){
     this.router.navigate(['/view-categories']);
   }
-
 }
