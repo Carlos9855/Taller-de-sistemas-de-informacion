@@ -10,7 +10,7 @@ import { IconRendererComponent } from '../../icon-renderer/icon-renderer.compone
   styleUrls: ['./categories-sidebar.component.scss']
 })
 export class CategoriesSidebarComponent implements OnInit {
-    
+
     public categoriesList: Category [] = [];
     public frameworkComponents: any;
   constructor(
@@ -37,6 +37,6 @@ export class CategoriesSidebarComponent implements OnInit {
   }
 
   goToSomePage(){
-    this.router.navigate(['/control-panel']);
+    this.router.navigate(['/Product-menu']);
   }
 }

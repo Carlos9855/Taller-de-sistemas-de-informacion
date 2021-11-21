@@ -9,6 +9,7 @@ import { ViewGeneralInformationComponent } from './components/view-product/view-
 import { MenuCategoriasComponent } from './components/menu-categorias/menu-categorias.component';
 import { CategoriesSidebarComponent } from './components/categories/categories-sidebar/categories-sidebar.component';
 import { CategoriesMainMenuComponent } from './components/categories/categories-main-menu/categories-main-menu.component';
+import { ProductosMainMenuComponent} from './components/productos/productos-main-menu/productos-main-menu.component';
 const routes: Routes = [
   {
     path: '',
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'menu-categorias',component:MenuCategoriasComponent},
   { path: 'categories-menu',component:CategoriesMainMenuComponent},
   { path: 'categories-sidenav',component:CategoriesSidebarComponent},
+  { path: 'Product-menu',component:ProductosMainMenuComponent},
   {
     path: 'login',
     loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule)
@@ -36,7 +38,7 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./auth/register/register.module').then(m => m.RegisterModule)
   }
-  
+
 ];
 
 @NgModule({

@@ -28,7 +28,7 @@ import { ViewAddCategoryComponent } from './components/categories/view-add-categ
 import { CategoriesSidebarComponent } from './components/categories/categories-sidebar/categories-sidebar.component';
 import { CategoriesMainMenuComponent } from './components/categories/categories-main-menu/categories-main-menu.component';
 import { MenuCategoriasComponent } from './components/menu-categorias/menu-categorias.component';
-
+import { ProductosMainMenuComponent } from './components/productos/productos-main-menu/productos-main-menu.component';
 // SERVICIOS
 import { ProductoService } from './services/producto.service';
 
@@ -65,8 +65,9 @@ const routes: Routes = [
     IconRendererComponent,
     ViewAddCategoryComponent,
     MenuCategoriasComponent,
+    ProductosMainMenuComponent,
     CategoriesMainMenuComponent,
-    CategoriesSidebarComponent
+    CategoriesSidebarComponent,
     ViewGeneralInformationComponent,
 
   ],
@@ -81,8 +82,8 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes),
     AgGridModule.withComponents([]),
-    MatDialogModule, 
-    BrowserAnimationsModule, 
+    MatDialogModule,
+    BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
     MatSidenavModule,
