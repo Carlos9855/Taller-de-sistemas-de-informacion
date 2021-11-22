@@ -46,6 +46,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list'
 import {MatListModule} from '@angular/material/list';
+import { ProductoMainDetailComponent } from './components/view-product/producto-main-detail/producto-main-detail.component';
 
 
 const routes: Routes = [
@@ -68,7 +69,8 @@ const routes: Routes = [
     ProductosMainMenuComponent,
     CategoriesMainMenuComponent,
     CategoriesSidebarComponent,
-    ViewGeneralInformationComponent,
+    //ViewGeneralInformationComponent,
+    //ProductoMainDetailComponent,
 
   ],
   imports: [

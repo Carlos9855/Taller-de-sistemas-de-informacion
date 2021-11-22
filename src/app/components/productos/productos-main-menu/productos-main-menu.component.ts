@@ -4,6 +4,9 @@ import { Category } from 'src/app/models/category';
 import { Producto } from 'src/app/models/producto';
 import { ProductoService } from 'src/app/services/producto.service';
 import { IconRendererComponent } from '../../icon-renderer/icon-renderer.component';
+import { MatDialog } from '@angular/material/dialog';
+import { ProductoMainDetailComponent } from '../../view-product/producto-main-detail/producto-main-detail.component';
+
 
 @Component({
   selector: 'app-productos-main-menu',
@@ -14,10 +17,11 @@ export class ProductosMainMenuComponent implements OnInit {
 
   public productsList: Producto [] = [];
   public frameworkComponents: any;
-constructor(
-  public productService: ProductoService,
-  private router: Router
-) { }
+  constructor(
+    public productService: ProductoService,
+    private router: Router,
+    public dialog: MatDialog,
+  ) { }
 
 ngOnInit(): void {
   this.frameworkComponents = {
@@ -37,7 +41,14 @@ getProductsData(){
   });
 }
 
-goToSomePage(){
-  this.router.navigate(['/control-panel']);
+goToSomePage(product){
+  this.dialog.open(ProductoMainDetailComponent,
+    {
+     data: product,
+     width: '100vw',
+     height: '90vh',
+    } );
+
+  }
 }
-}
+

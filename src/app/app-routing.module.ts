@@ -10,6 +10,7 @@ import { MenuCategoriasComponent } from './components/menu-categorias/menu-categ
 import { CategoriesSidebarComponent } from './components/categories/categories-sidebar/categories-sidebar.component';
 import { CategoriesMainMenuComponent } from './components/categories/categories-main-menu/categories-main-menu.component';
 import { ProductosMainMenuComponent} from './components/productos/productos-main-menu/productos-main-menu.component';
+import { ProductoMainDetailComponent } from './components/view-product/producto-main-detail/producto-main-detail.component';
 const routes: Routes = [
   {
     path: '',
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'categories-menu',component:CategoriesMainMenuComponent},
   { path: 'categories-sidenav',component:CategoriesSidebarComponent},
   { path: 'Product-menu',component:ProductosMainMenuComponent},
+  { path: 'Product-menu-detail',component:ProductoMainDetailComponent},
   {
     path: 'login',
     loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule)
