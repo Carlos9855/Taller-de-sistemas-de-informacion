@@ -167,7 +167,7 @@ export class ViewProductsComponent implements OnInit{
   }
 
   showProductGeneralInformation(product){
-    this.dialog.open(ViewGeneralInformationComponent, 
+    this.dialog.open(ViewGeneralInformationComponent,
       {
        data: product.rowData,
        width: '100vw',

@@ -1,0 +1,146 @@
+
+    .grid-view{
+      display: grid;
+      grid-template-columns: 50% 50%;
+      grid-template-rows: 85vh;
+  }
+
+  .grid-technical-information{
+      display: grid;
+      grid-template-rows: auto, auto, auto, auto, auto, auto, auto, auto;
+  }
+
+  .grid-technical-information-two-columns{
+      display: grid;
+      grid-template-columns: 50% 50%;
+  }
+
+  @mixin center-vertically-horizontally{
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      height: 85vh;
+  }
+
+  @mixin label-template{
+      font-size: 1vw;
+      font-weight: 600;
+  }
+
+
+
+
+  .product-image-container{
+      @include center-vertically-horizontally;
+      .product-image{
+          width: 100%;
+          height: 100%;
+      }
+  }
+
+
+  .information-container{
+      margin-top: 12vh;
+      padding-left: 0.3vw;
+      padding-right: 0.3vw;
+
+      .product-title{
+          font-size: 1.8vw;
+          font-weight: 700;
+      }
+
+      .description-container{
+          margin: 2vw 3vw;
+
+          .description-label{
+              @include label-template;
+          }
+          .description-data{
+              padding: 3%;
+              border: 1.5px solid rgb(219, 219, 219);
+              border-radius: 0.3vw;
+              font-size: 1vw;
+              color: rgb(54, 54, 54);
+          }
+      }
+
+      .amount-container{
+          margin: 2vw 3vw;
+          .label-amount{
+              @include label-template;
+          }
+
+          .avaiable-amount{
+              border: 2px solid rgb(219, 219, 219);
+              padding: 0.3vw 2vw;
+              margin-left: 2vw;
+          }
+      }
+
+      .price-container{
+          @extend .amount-container;
+          .label-price{
+              @include label-template;
+          }
+          .number-price{
+              @extend .avaiable-amount;
+              background-color: #74c0bc;
+              color: rgb(255, 255, 255);
+          }
+
+      }
+
+      .button-container{
+          margin-left: 3vw;
+          margin-right: 17vw;
+          text-align: center;
+
+          .button-template{
+              padding: 0.2vw 0.5vw;
+              border-radius: 0.3vw;
+              @include label-template;
+              color: rgb(246, 251, 255);
+              cursor: pointer;
+          }
+
+          .technical-specifications{
+              @extend .button-template;
+              background-color: #CA8181;
+          }
+      }
+
+
+      .add-button-container{
+          text-align: center;
+          padding-top: 2.3vh;
+          .add-car-btn{
+              padding:1vw 1.5vw;
+              font-size: 1.5vw;
+              font-weight: 600;
+              border-radius: 0.5vw;
+              background-color: #7AC074;
+              border: none;
+              color: rgb(248, 252, 255);
+          }
+      }
+  }
+
+  .grid-technical-information{
+      padding: 3vh 3vw;
+      .individual-row{
+          padding-bottom: 0.8vh;
+          margin-left: 3vw;
+          margin-right: 3vw;
+          .t-label{
+              @include label-template;
+          }
+
+          .t-data{
+              border: 2px solid rgb(219, 219, 219);
+              padding: 0.3vw 2vw;
+              text-align: center;
+
+          }
+      }
+  }

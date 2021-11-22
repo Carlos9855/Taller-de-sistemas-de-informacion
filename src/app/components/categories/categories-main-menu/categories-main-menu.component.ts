@@ -34,7 +34,7 @@ export class CategoriesMainMenuComponent implements OnInit {
   }
 
   goToSomePage(){
-    this.router.navigate(['/control-panel']);
+    this.router.navigate(['/Product-menu']);
   }
 
 }

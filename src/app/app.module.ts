@@ -28,7 +28,7 @@ import { ViewAddCategoryComponent } from './components/categories/view-add-categ
 import { CategoriesSidebarComponent } from './components/categories/categories-sidebar/categories-sidebar.component';
 import { CategoriesMainMenuComponent } from './components/categories/categories-main-menu/categories-main-menu.component';
 import { MenuCategoriasComponent } from './components/menu-categorias/menu-categorias.component';
-
+import { ProductosMainMenuComponent } from './components/productos/productos-main-menu/productos-main-menu.component';
 // SERVICIOS
 import { ProductoService } from './services/producto.service';
 
@@ -46,6 +46,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list'
 import {MatListModule} from '@angular/material/list';
+import { ProductoMainDetailComponent } from './components/view-product/producto-main-detail/producto-main-detail.component';
 
 
 const routes: Routes = [
@@ -65,9 +66,11 @@ const routes: Routes = [
     IconRendererComponent,
     ViewAddCategoryComponent,
     MenuCategoriasComponent,
+    ProductosMainMenuComponent,
     CategoriesMainMenuComponent,
-    CategoriesSidebarComponent
-    ViewGeneralInformationComponent,
+    CategoriesSidebarComponent,
+    //ViewGeneralInformationComponent,
+    //ProductoMainDetailComponent,
 
   ],
   imports: [
@@ -81,8 +84,8 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes),
     AgGridModule.withComponents([]),
-    MatDialogModule, 
-    BrowserAnimationsModule, 
+    MatDialogModule,
+    BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
     MatSidenavModule,

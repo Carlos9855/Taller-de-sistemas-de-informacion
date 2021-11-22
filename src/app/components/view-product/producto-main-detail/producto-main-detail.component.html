@@ -1,0 +1,95 @@
+<div class="grid-view">
+  <div class="product-image-container">
+      <div>
+          <img src="{{product.UrlImage}}" class = "product-image" alt="alt">
+      </div>
+  </div>
+
+  <div class="information-container">
+
+          <h1 class="product-title">{{product.Name}} | {{product.Brand}}</h1>
+
+          <div id="div-replaced">
+              <div class="description-container">
+                  <div class="description-label">
+                      <p>Descripcion: </p>
+                  </div>
+                 <div class="description-data">
+                      <p>{{product.Description}}</p>
+                 </div>
+              </div>
+              <div class="price-container">
+                  <p class="label-price">Precio (Bs): <span class="number-price">{{product.Price}}</span></p>
+              </div>
+
+              <div class="button-container">
+                  <div class="technical-specifications" (click) = "goToSpecifications()">Especificaciones tecnicas</div>
+              </div>
+              <div class="amount-container">
+                  <p class="label-amount">Unidades Disponibles: <span class="avaiable-amount">{{product.Amount}}</span></p>
+              </div>
+              <div class="add-button-container">
+                  <button class="add-car-btn">+ Agregar al carrito</button>
+              </div>
+          </div>
+
+
+      <template id="template">
+              <div id="div-replace">
+                  <div class="grid-technical-information">
+                      <div class="individual-row">
+                          <div  class=" grid-technical-information-two-columns">
+                              <p class="t-label">Nombre:</p>
+                              <p class="t-data">{{product.Name}}</p>
+                              <!-- <p class="t-label">Nombre: <span class="t-data">{{product.Name}}</span></p> -->
+                          </div>
+                      </div>
+                      <div class="individual-row">
+                          <div  class=" grid-technical-information-two-columns">
+                              <p class="t-label">Descripcion:</p>
+                              <p class="t-data">{{product.Description}}</p>
+                          </div>
+                      </div>
+                      <div class="individual-row">
+                          <div  class=" grid-technical-information-two-columns">
+                              <p class="t-label">Precio:</p>
+                              <p class="t-data">{{product.Price}}</p>
+                          </div>
+                      </div>
+                      <div class="individual-row">
+                          <div  class=" grid-technical-information-two-columns">
+                              <p class="t-label">Modelo:</p>
+                              <p class="t-data">{{product.Model}}</p>
+                          </div>
+                     </div>
+                      <div class="individual-row">
+                          <div  class=" grid-technical-information-two-columns">
+                              <p class="t-label">Categoria:</p>
+                              <p class="t-data">{{product.Category}}</p>
+                          </div>
+                      </div>
+                      <div class="individual-row">
+                          <div  class=" grid-technical-information-two-columns">
+                              <p class="t-label">Cantidad:</p>
+                              <p class="t-data">{{product.Amount}}</p>
+                          </div>
+                      </div>
+                      <div class="individual-row">
+                          <div  class=" grid-technical-information-two-columns">
+                              <p class="t-label">Codigo:</p>
+                              <p class="t-data">{{product.Code}}</p>
+                          </div>
+
+                      </div>
+                      <div class="individual-row">
+                          <div  class=" grid-technical-information-two-columns">
+                              <p class="t-label">Marca:</p>
+                              <p class="t-data">{{product.Brand}}</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </template>
+
+  </div>
+</div>
