@@ -28,7 +28,11 @@ import { ViewAddCategoryComponent } from './components/categories/view-add-categ
 import { CategoriesSidebarComponent } from './components/categories/categories-sidebar/categories-sidebar.component';
 import { CategoriesMainMenuComponent } from './components/categories/categories-main-menu/categories-main-menu.component';
 import { MenuCategoriasComponent } from './components/menu-categorias/menu-categorias.component';
+
 import { ProductosMainMenuComponent } from './components/productos/productos-main-menu/productos-main-menu.component';
+
+import { ViewOneEmployeeComponent } from './components/employees/view-one-employee/view-one-employee.component';
+
 // SERVICIOS
 import { ProductoService } from './services/producto.service';
 
@@ -47,6 +51,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list'
 import {MatListModule} from '@angular/material/list';
 import { ProductoMainDetailComponent } from './components/view-product/producto-main-detail/producto-main-detail.component';
+import { HotToastModule } from '@ngneat/hot-toast';
 
 
 const routes: Routes = [
@@ -71,6 +76,9 @@ const routes: Routes = [
     CategoriesSidebarComponent,
     //ViewGeneralInformationComponent,
     //ProductoMainDetailComponent,
+    ViewGeneralInformationComponent,
+    ViewOneEmployeeComponent
+
 
   ],
   imports: [
@@ -90,7 +98,8 @@ const routes: Routes = [
     MatCardModule,
     MatSidenavModule,
     MatGridListModule,
-    MatListModule
+    MatListModule,
+    HotToastModule.forRoot()
   ],
   providers: [
     ProductoService

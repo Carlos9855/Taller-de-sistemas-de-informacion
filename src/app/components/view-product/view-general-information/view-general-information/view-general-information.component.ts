@@ -15,7 +15,6 @@ export class ViewGeneralInformationComponent implements OnInit {
   }
 
   goToSpecifications(){
-      console.log("ahora soy pior");
       var divReplaced = document.getElementById("div-replaced");
       var divToReplace = document.getElementById("div-replace");
       // const template = document.getElementById("template");

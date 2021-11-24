@@ -1,27 +1,26 @@
 <div class="row">
-  <div class="col-8">
+  <div class="col-12">
     <div class="general-container">
-      <div class="title-container">
-        <h1>LISTA DE EMPLEADOS</h1>
-      </div>
       
-      <div class="row search-container">
-        <div class="col-8">
-          <div class="inputContainer">
-            <!-- <label for="search-field" class="label-search">Buscar: </label> -->
-            <input type="text" name="search-field" class="inputClass" (keyup)="onQuickFilterChanged()" 
-            [(ngModel)]="quickSearchValue" placeholder="Busqueda rapida.. " /> 
-          </div>
-        </div>
-        <div class="col-4">
-        
-          <div class="addButtonContainer">
-            <button class="edit-button" routerLink="/add-employee">+ Agregar Empleado</button>
-          </div>
-        </div>
-      </div>
+      
   
-  
+     <div class="grid-row">
+        <div class="title-container">
+          <h1>LISTA DE EMPLEADOS</h1>
+        </div>
+        <div class="inputContainer">
+          <!-- <label for="search-field" class="label-search">Buscar: </label> -->
+          <input type="text" name="search-field" class="inputClass" (keyup)="onQuickFilterChanged()" 
+          [(ngModel)]="quickSearchValue" placeholder="Busqueda rapida.. " /> 
+        </div>
+
+        <div class="addButtonContainer">
+          <button class="edit-button" (click) = "addEmployee()">+ Agregar Empleado</button>
+        </div>
+
+     </div>
+     
+   
         <ag-grid-angular
           class="ag-theme-alpine"
           [rowData] = "employeesList"
@@ -29,32 +28,6 @@
           [gridOptions] = "gridOptions"
           [frameworkComponents] = "frameworkComponents"
         ></ag-grid-angular>
-    </div>
-  </div>
-
-
-  <div class="col-4">
-    <div class="information-container">
-      <div class="title-container botton-padd">
-        <h1>EMPLEADO</h1>
-      </div>
-      <div class="data-container">
-        <p class="p-size"><span class="span-modifier">Nombres: </span>{{this.employeeService.selectedEmployee.Name}}</p>
-        <p class="p-size"><span class="span-modifier">Apellidos: </span>{{this.employeeService.selectedEmployee.LastName}}</p>
-        <p class="p-size"><span class="span-modifier">Ci: </span>{{this.employeeService.selectedEmployee.Ci}}</p>
-        <p class="p-size"><span class="span-modifier">Nacimiento: </span>{{this.employeeService.selectedEmployee.BirthdayDate}}</p>
-        <p class="p-size"><span class="span-modifier">Telefono: </span>{{this.employeeService.selectedEmployee.Phone}}</p>
-        <p class="p-size"><span class="span-modifier">Email: </span>{{this.employeeService.selectedEmployee.Email}}</p>
-        <p class="p-size"><span class="span-modifier">Celular: </span>{{this.employeeService.selectedEmployee.Cellphone}}</p>
-        <p class="p-size"><span class="span-modifier">Direccion: </span>{{this.employeeService.selectedEmployee.Address}}</p>
-
-      </div>
-
-      <div class="image-container">
-        <!-- <img src="{{this.employeeService.selectedEmployee.UrlImage}}" alt="" width="50%" height="50%"> -->
-    </div>
-
-
     </div>
   </div>
 

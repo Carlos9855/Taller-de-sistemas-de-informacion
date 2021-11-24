@@ -1,119 +1,76 @@
+$primary-color : #000000;
+$title-color: #303030;
+
 h1{
-    text-align: center;
+    text-align: left;
     font-weight: 1000;
-    color: #d4d4d4;
-    padding-top: 2%;
+    font-size: 3.5vw;
+    font-weight: 700;
+    color: $title-color;
+}
+
+
+.grid-row{
+    padding-left: 1vw;
+    padding-right: 1vw;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    border: solid 1px #BABFC7;
+    background-color: #F8F8F8;
+    border-bottom: none;
 }
 
 .general-container{
-    background-color: #081c15;
-    margin-left: 2%;
+   
+    margin-left: 1%;
     margin-right: 1%;
-    margin-top: 2%;
+    margin-top: 1%;
 }
 
-.buttonCell{
-    padding-left: 3%;
-  
-}
-
-.delete-button{
-    background-color: #CA8181;
-    color: rgb(255, 255, 255);
-}
-
-.delete-button:hover{
-    color: rgb(255, 255, 255);
-    background-color: #ca3838;
-}
 
 .edit-button{
-    background-color: #7AC074;
+    background-color: #4ECFAE;
     color: rgb(255, 255, 255);
     margin-left: 1%;
     border: none;
-    padding: 5%;
+    padding: 2vh 2vw 2vh 2vw;
     font-size: 1.2vw;
-    font-weight: 500;
+    font-weight: 700;
     border-radius: 0.5vw;
-    margin-right: 7%;
 }
 
-.edit-button:hover{
-    color: rgb(255, 255, 255);
-    background-color: #6ac462;
-}
 
 .addButtonContainer{
-    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: right;
 }
 
 .inputContainer{
-justify-content: end;
-
-}
-
-.inputClass{
-    padding-right: 50%;
-    background-color: #081d15;
-    color: #F3F3F3;
-    margin-top: 3%;
-    margin-left: 3%;
-    border: #F3F3F3;
-
-}
-
-.title-container{
-    background-color: #081d15;
-
-}
-
-.search-container{
-    margin-left: 2%;
-    margin-right: 2%;
-    background-color: #081d15;
-    padding-bottom: 2%;
-}
-
-.label-search{
-    color: #F3F3F3;
-}
-
-
-.information-container{
-    background-color: #ffffff;
-    margin-top: 4%;
-    margin-right: 4%;
-    height: 40vw;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #c9c9c9;
-}
-
-.botton-padd{
-    padding-bottom: 2%;
     padding-top: 2%;
 }
 
-.image-container{
-    text-align: center;
+.inputClass{
+    
+    width: 100%;
+    background-color: #F8F8F8;
+    color: $title-color;
+    border: solid 0.1vw $title-color;
+    padding: 2vh 2vw 1.7vh 0.5vw;
+    border-top-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    &:focus{
+        outline: none;
+        border-bottom-style: solid;
+    }
+}
+
+.title-container{
+    background-color: none;
 }
 
 
-.span-modifier{
-    font-weight: 500;
-    font-size: 1vw;
-    color: #797979;
 
-}
 
-.p-size{
-    font-weight: 600;
-    font-size: 1vw;
-}
-
-.data-container{
-    padding-top: 5%;
-    margin-left: 16%;
-    margin-right: 10%;
-}

@@ -1,51 +1,46 @@
-
-<div class="buttonsContainer">
-<button (click)="goToCategoryMenu()"  class="btn btn-secondary">Menu de categorias</button>
+<div class="login-container">
     <div class="title-container">
-        <h1>PANEL DE CONTROL</h1>
+      <h1 class="title">PANEL DE CONTROL</h1>
+      <div class="title-decorator"></div>
     </div>
-  
-    <div class="row panel-container">
-        <div class="col-md-4 ">
-            <div class="cardd product-card" (click)="goToProductList()">
-                <div class="image-container">
-                    <div class="image-icon product-icon">
-                    </div>
-                </div>
-                <div class="name-container product-name-container">
-                    <p class="name">Lista de Productos</p>
+    <div class="options-container">
+        <div class="options-grid">
+            <div class="option" [routerLink] = "['/view-employees']">
+                <div>
+                  <img src="/assets/images/empleados.png" alt="alt" class="icons-image"> 
+                </div>     
+                <div>
+                  <p class="icons-description" style>Empleados</p>
                 </div>
             </div>
-         
+            <div class="option" [routerLink] = "['/view-products']">
+              <div>
+                <img src="/assets/images/productos.png" alt="alt" class="icons-image"> 
+              </div>
+              <div>
+                <p class="icons-description">Productos</p>
+              </div>
+            </div>
+            <div class="option" [routerLink] = "['/view-categories']">
+              <div>
+
+                <img src="/assets/images/categorias.png" alt="alt" class="icons-image"> 
+              </div>
+              <div>
+                <p class="icons-description">Categorias</p>
+              </div>
+            </div>
+            <div class="option" [routerLink] = "['/categories-menu']">
+              <div>
+                <img src="/assets/images/almacen.png" alt="alt" class="icons-image"> 
+              </div>
+              <div>
+                <p class="icons-description">Almacen</p>
+              </div>
+            </div>
         </div>
-        <div class="col-md-4">
-            <div class="cardd employee-card" (click)="goToEmployeeList()">
-                <div class="image-container">
-                    <div class="image-icon employee-icon">
-                    </div>
-                </div>
-                <div class="name-container employee-name-container">
-                    <p class="name">Lista de Empleados</p>
-                </div>
-            </div>
-           </div>
-        <div class="col-md-4">
-            <div class="cardd category-card" (click)="goToCategoriesList()">
-                <div class="image-container">
-                    <div class="image-icon category-icon">
-                    </div>
-                </div>
-                <div class="name-container category-name-container">
-                    <p class="name">Lista de Categorias</p>
-                </div>
-            </div>
 
-            </div>
-
-
-        <!--<button (click)="goToInventory()"  class="btn btn-secondary">Inventario</button>
-        <button class="btn btn-secondary">Almacenes</button>-->
     </div>
-
-
 </div>
+
+

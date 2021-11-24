@@ -1,11 +1,16 @@
-<nav class="navbar navbar-expand-lg navbar-colors">
+<nav class="navbar navbar-expand-lg nav">
   <div class="container-fluid">
-    <a class="navbar-brand enterprise-name" routerLink="/control-panel">GHOST ENTERPRISE</a>
+      <div class="enterprise-name-container" *ngIf="user$ | async as user">
+        <a class="enterprise-name" routerLink="/control-panel">ELECTROSTORE</a>
+      </div>
     <div class="collapse navbar-collapse" id="navbarColor01" *ngIf="user$ | async as user">
       <ul class="navbar-nav me-auto" >
         <li class="white-text" *ngIf="user">
-          <div  routerLink="/control-panel" class="home-container">
-            <img src="/assets/images/home.png" alt="alt" class="home-image" >
+          <div routerLink="/control-panel" class="home-container">
+            <div>
+
+              <img src="/assets/images/home.png" alt="alt" class="home-image" >
+            </div>
           </div>
         </li>
         <!--<li class="nav-item dropdown" *ngIf="user">
@@ -24,6 +29,7 @@
         <li class="nav-item dropdown" *ngIf="user">
           <a class="nav-link white-text dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{user?.email}}</a>
           <div class="dropdown-menu">
+            <a class="dropdown-item" (click)="onLogout()" >Ver Perfil</a>
             <a class="dropdown-item" (click)="onLogout()" >Logout</a>
           </div>
         </li>
