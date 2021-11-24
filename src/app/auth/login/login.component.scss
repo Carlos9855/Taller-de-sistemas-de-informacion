@@ -1,9 +1,65 @@
-.green-button{
-    background-color: rgba(117, 189, 110, 0.96);
-    color: rgb(255, 255, 255);
+$title-color: #303030;
+$primary-color : #3BBACC;
+$secondary-color: #C2C2C7;
+
+.login-container{
+    text-align: center;
+    margin-top: 8vh;
+
+    .title-container{
+        margin-left: 33vw;
+        margin-right: 33vw;
+    
+        .title{
+            color: $title-color;
+            font-size: 3.5vw;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 6vh;
+        }
+
+        .title-decorator{
+            border-bottom: solid 0.3vw $title-color;
+         
+        }
+    }
+  
+    .form-container{
+        margin-left: 34vw;
+        margin-right: 34vw;
+
+        .forms-group-container{
+            margin-top: 6vh;
+            margin-bottom: 6vh;
+
+            .texti{
+                margin-bottom: 3vh;
+                padding-top: 3vh;
+                padding-bottom: 3vh;
+                font-size: 3vh;
+                font-weight: 400;
+            }
+        }
+
+        .button-login{
+            display: block;
+            background-color: $primary-color;
+            text-align: center;
+            border-radius: 0.5vw;
+            cursor: pointer;
+            
+           
+            .button-p{
+                color: #ffff;
+                font-size: 1.75vw;
+                font-weight: 700;
+                padding: 3.5vh 3vw;
+            }
+        }
+    }
+    
 }
 
-.green-button:hover{
-    color: rgb(255, 255, 255);
-    background-color: rgba(147, 199, 134, 0.96);
-}
+
+
+

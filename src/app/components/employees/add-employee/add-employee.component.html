@@ -1,58 +1,72 @@
-<form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+<form #employeeForm="ngForm">
     <div class="row">
-        <div class="col-md-6 columnsContainer">
-            <h1>Datos Personales</h1>
+        <div class="col-md-6 personal-column-container">
+            <h1>DATOS PERSONALES</h1>
                 <div class="form-group">
-                    <label for="lastNameInput">Apellidos:</label>
+                    
+                    <input type="text" placeholder="Nombres" class="input-form" name="Name" #Name="ngModel"
+                        [(ngModel)]="employeeService.selectedEmployee.Name"> 
+                </div>
+                <div class="form-group">
+                    
                     <input 
+                        placeholder="Apellidos"
                         type="text" class="input-form" 
                         name="LastName"
                         #LastName="ngModel"
                         [(ngModel)]="employeeService.selectedEmployee.LastName">
                 </div>
+                
                 <div class="form-group">
-                    <label for="nameInput">Nombre:</label>
-                    <input type="text" class="input-form" name="Name" #Name="ngModel"
-                        [(ngModel)]="employeeService.selectedEmployee.Name"> 
-                </div>
-                <div class="form-group">
-                    <label for="ciInput">CI:</label>
-                    <input type="text" class="input-form" name="Ci" #Ci="ngModel"
+                   
+                    <input placeholder="Carnet de identidad" type="text" class="input-form" name="Ci" #Ci="ngModel"
                     [(ngModel)]="employeeService.selectedEmployee.Ci">
                 </div>
                 <div class="form-group">
-                    <label for="birthdayDateInput">Fecha de nacimiento:</label>
-                    <input type="date" class="input-form" name="BirthdayDate" #BirthdayDate="ngModel"
+                   
+                    <input placeholder="Fecha de nacimiento" type="date" class="input-form" name="BirthdayDate" #BirthdayDate="ngModel"
                     [(ngModel)]="employeeService.selectedEmployee.BirthdayDate">
                 </div>
+               
         </div>
 
-        <div class="col-md-6 columnsContainer">
-            <h1>Contacto</h1>
+        <div class="col-md-6 contact-column-container">
+            <h1>CONTACTO</h1>
             <div class="form-group">
-                <label for="phoneInput">Telefono fijo:</label>
-                <input type="text" class="input-form" name="Phone" #Phone="ngModel"
+                
+                <input placeholder="Telefono fijo" type="text" class="input-form" name="Phone" #Phone="ngModel"
                 [(ngModel)]="employeeService.selectedEmployee.Phone">
                 </div>
             <div class="form-group">
-                <label for="emailInput">Correo Electronico:</label>
-                <input type="email" class="input-form" name="Email" #Email="ngModel"
+                
+                <input type="email" placeholder="Correo electronico" class="input-form" name="Email" #Email="ngModel"
                 [(ngModel)]="employeeService.selectedEmployee.Email">
             </div>
             <div class="form-group">
-                <label for="cellphoneInput">Celular:</label>
-                <input type="text" class="input-form" name="Cellphone" #Cellphone="ngModel"
+              
+                <input type="text" placeholder="Telefono movil" class="input-form" name="Cellphone" #Cellphone="ngModel"
                 [(ngModel)]="employeeService.selectedEmployee.Cellphone">
             </div>
             <div class="form-group">
-                <label for="addressInput">Direccion:</label>
-                <input type="text" class="input-form" name="Address" #Address="ngModel"
+                
+                <input type="text" placeholder="Direccion" class="input-form" name="Address" #Address="ngModel"
                 [(ngModel)]="employeeService.selectedEmployee.Address">
             </div>
-            <div class="div-button">
-                <button type="submit" class="btn btn-add-employee">GUARDAR</button>
-                <button (click)="goToViewEmployees()" class="btn btn-cancel">CANCELAR</button>
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="cancel-button" (click)="closeDialogFalse()">
+                        <p class="btn-content">Cancelar</p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="save-button" (click)="onSubmit(employeeForm)">
+                        <p class="btn-content">Guardar</p>
+                    </div>   
+                </div>
+               
             </div>
+            
             
         </div>
 

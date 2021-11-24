@@ -11,6 +11,8 @@ import { CategoriesSidebarComponent } from './components/categories/categories-s
 import { CategoriesMainMenuComponent } from './components/categories/categories-main-menu/categories-main-menu.component';
 import { ProductosMainMenuComponent} from './components/productos/productos-main-menu/productos-main-menu.component';
 import { ProductoMainDetailComponent } from './components/view-product/producto-main-detail/producto-main-detail.component';
+import { ViewOneEmployeeComponent } from './components/employees/view-one-employee/view-one-employee.component';
+
 const routes: Routes = [
   {
     path: '',

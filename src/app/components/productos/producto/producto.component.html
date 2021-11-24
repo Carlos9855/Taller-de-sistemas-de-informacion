@@ -1,126 +1,108 @@
 
-<form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
-
-    <div class="row">
-      <div class="topContainer">
-          <div class="form-group">
-              <label for="lastNameInput">Producto:</label>
-              <input 
-                  type="text" 
-                  class="input-form-producto" 
-                  name="Name"
-                  #Name="ngModel"
-                  [(ngModel)]="productoService.selectedProduct.Name" >
-          </div>
-      
-          <div class="form-group-description">
-              <label for="lastNameInput">Descripcion:</label>
-              <textarea 
-                  type="text" 
-                  class="textarea-description" 
-                  name="Description"
-                  #Description="ngModel"
-                  [(ngModel)]="productoService.selectedProduct.Description"
-                  
-                  rows="3" 
-                  mdbInput></textarea>
-          </div>
-      </div>
-
-      <div class="col-md-6 columnsContainer">
-          <div class="form-group">
-              <label for="lastNameInput">Modelo:</label>
-              <input 
-                  type="text" 
-                  class="input-form-model" 
-                  name="Model"
-                  #Model="ngModel"
-                  [(ngModel)]="productoService.selectedProduct.Model"
-                  
-                  >
-          </div>
-
-          <div class="form-group">
-              <label for="lastNameInput">Precio:</label>
-              <input 
-                  type="number"
-                  class="input-form-price" 
-                  name="Price"
-                  #Price="ngModel"
-                  [(ngModel)]="productoService.selectedProduct.Price"
-                  
-                  >
-          </div>
-      </div>
-
-      <div class="col-md-6 columnsContainer">
-          <div class="form-group">
-              <label for="lastNameInput">Codigo de producto:</label>
-              <input 
-                  type="number"
-                  class="input-form-code" 
-                  name="Code"
-                  #Code="ngModel"
-                  [(ngModel)]="productoService.selectedProduct.Code"
-                 
-                  >
-          </div>
-      
-          <div class="form-group">
-              <label for="lastNameInput">Cantidad:</label>
-              <input 
-                  type="number"
-                  class="input-form-cant" 
-                  name="Amount"
-                  #Amount="ngModel"
-                  [(ngModel)]="productoService.selectedProduct.Amount"  >
-          </div>
-
-          <div class="form-group">
-            <label for="Brand">Marca:</label>
-            <input 
-                type="text"
-                class="input-form-cant" 
-                name="Brand"
-                #Brand="ngModel"
-                [(ngModel)]="productoService.selectedProduct.Brand">
+<form #productForm="ngForm" class="page-body">
+    <div class="column-grid">
+        <div class="column">
+            <div class="form-group">
+                <input 
+                    placeholder="Producto"
+                    type="text" 
+                    class="input-form" 
+                    name="Name"
+                    #Name="ngModel"
+                    [(ngModel)]="productoService.selectedProduct.Name">
+            </div>
+            <div class="form-group">
+                <input 
+                placeholder="Modelo"
+                    type="text" 
+                    class="input-form" 
+                    name="Model"
+                    #Model="ngModel"
+                    [(ngModel)]="productoService.selectedProduct.Model">
+            </div>
+            <div class="form-group-description">
+                <label for="lastNameInput">Descripcion:</label>
+                <textarea 
+                    type="text" 
+                    class="textarea-description" 
+                    name="Description"
+                    #Description="ngModel"
+                    [(ngModel)]="productoService.selectedProduct.Description"
+                    rows="3" 
+                    mdbInput></textarea>
+            </div>
         </div>
-
-        <div class="form-group">
-            <input type="hidden" class="input-form" [value] = "urlImage | async" name="UrlImage" #UrlImage="ngModel" 
-            [(ngModel)]="productoService.selectedProduct.UrlImage">
-        </div>
-        <div class="form-group">
-            <h5>Seleccionar imagen</h5>
-            <input type="file" accept=".png, .jpg" (change) = "onUpload($event)">
-        </div>
-      </div>
-
-      <div class="bottomContainer">
-        <div class="form-group">
-            <label for="lastNameInput">Categoria:</label>
-            <select 
-                type="text" 
-                class="input-form-category" 
-                name="Category"
-                #Category="ngModel"
-                [(ngModel)]="productoService.selectedProduct.Category">
-                    <option *ngFor="let category of categoryList"
-                        [value]="category.Name">
-                            {{ category.Name }}
-                    </option>
-            </select>
-        </div>
-      </div>
-
-      
-  </div>
+        <div class="column">
+            <div class="form-group">
+                <input 
+                    placeholder="Codigo de produccion"
+                    type="number"
+                    class="input-form" 
+                    name="Code"
+                    #Code="ngModel"
+                    [(ngModel)]="productoService.selectedProduct.Code" >
+            </div>
+            <div class="form-group">
+                <input 
+                    placeholder="Precio"
+                    type="number"
+                    class="input-form" 
+                    name="Price"
+                    #Price="ngModel"
+                    [(ngModel)]="productoService.selectedProduct.Price">
+            </div>
+            <div class="form-group">
+                <input 
+                    placeholder="Cantidad"
+                    type="number"
+                    class="input-form" 
+                    name="Amount"
+                    #Amount="ngModel"
+                    [(ngModel)]="productoService.selectedProduct.Amount">
+            </div>
+            <div class="bottomContainer">
+                <div class="form-group">
+                    <select 
+                        placeholder="Categoria"
+                        type="text" 
+                        class="input-form" 
+                        name="Category"
+                        #Category="ngModel"
+                        [(ngModel)]="productoService.selectedProduct.Category">
+                            <option *ngFor="let category of categoryList"
+                                [value]="category.Name">
+                                    {{ category.Name }}
+                            </option>
+                    </select>
+                </div>
+              </div>
+        
   
-  <div class="buttonsContainer">
-          <button type="submit" class="btn btn-add-product">GUARDAR</button>
-          <button (click)="goToViewProducts()" class="btn btn-cancel">CANCELAR</button>
-  </div>
+        </div>
+        <div class="column">
+            <div class="form-group">
+                <input 
+                    placeholder="Marca"
+                    type="text"
+                    class="input-form" 
+                    name="Brand"
+                    #Brand="ngModel"
+                    [(ngModel)]="productoService.selectedProduct.Brand">
+            </div>
+            <div class="form-group">
+                <input type="hidden" class="input-form" [value] = "urlImage | async" name="UrlImage" #UrlImage="ngModel" 
+                [(ngModel)]="productoService.selectedProduct.UrlImage">
+            </div>
+            <div class="form-group">
+                <h5>Seleccionar imagen</h5>
+                <input type="file" accept=".png, .jpg" (change) = "onUpload($event)">
+            </div>
+        </div>
+    </div>
+ 
   
-
+    <div class="buttonsContainer">
+        <button type="submit" class="btn btn-add-product" (click) = "onSubmit(productForm)">GUARDAR</button>
+        <button (click)="closeDialogFalse()" class="btn btn-cancel">CANCELAR</button>
+    </div>
 </form>
-<br><br><br><br>

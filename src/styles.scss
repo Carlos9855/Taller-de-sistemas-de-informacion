@@ -1,11 +1,3 @@
-html, body {
-  font-family: 'Roboto', sans-serif;
-  background-color:#F3F3F3;
-}
-
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 @import "ag-grid-community/dist/styles/ag-grid.css";
 @import "ag-grid-community/dist/styles/ag-theme-alpine.css";
@@ -15,7 +7,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @import "ag-grid-community/dist/styles/ag-theme-material.css";
 @import "~bootstrap/dist/css/bootstrap.css";
 
-$yellow-color: #D7BD61;
-$green-color: #7AC074;
-$red-color: #CA8181;
-$blue-color: #74c0bc;
+
+
+html, body {
+  font-family: 'Montserrat', sans-serif;
+}
+

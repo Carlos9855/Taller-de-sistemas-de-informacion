@@ -10,6 +10,7 @@ import { Observable, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { Category } from 'src/app/models/category';
 import { CategoryService } from 'src/app/services/category.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-producto',
@@ -24,8 +25,8 @@ export class ProductoComponent implements OnInit{
 
   constructor(
     public productoService: ProductoService,
-    private router: Router,
-    public categoryService: CategoryService
+    public categoryService: CategoryService,
+    public dialog: MatDialogRef<ProductoComponent>
     ) { }
 
   ngOnInit() {
@@ -51,21 +52,7 @@ export class ProductoComponent implements OnInit{
     else{
         this.productoService.insertProduct(productForm.value);
     }
-    this.resetForm(productForm);
-  }
-
-  goToViewProducts(){
-    this.resetForm();
-    this.router.navigate(['/view-products']);
-  }
-
-  resetForm(productForm?: NgForm)
-  {
-    if(productForm!=null)
-    {
-      productForm.reset();
-    }
-      this.productoService.selectedProduct = new Producto();
+    this.closeDialogTrue();
   }
 
 
@@ -76,5 +63,15 @@ export class ProductoComponent implements OnInit{
     this.urlImage.then((a) => {console.log(a)})
     this.urlImage.then((a) => {this.productoService.selectedProduct.UrlImage = a})
  }
+
+
+ closeDialogTrue(){
+  this.dialog.close(true);
+}
+
+
+closeDialogFalse(){
+  this.dialog.close(false);
+}
 
 }

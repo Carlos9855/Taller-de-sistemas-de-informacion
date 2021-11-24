@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Employee } from 'src/app/models/employee';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { Router } from '@angular/router';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-employee',
@@ -14,6 +15,7 @@ export class AddEmployeeComponent implements OnInit {
 
 
   constructor(
+    public dialog: MatDialogRef<AddEmployeeComponent>,
     public employeeService: EmployeeService, 
     private router: Router
     )
@@ -32,20 +34,18 @@ export class AddEmployeeComponent implements OnInit {
     else{
         this.employeeService.insertProduct(employeeForm.value);
     }
-    this.resetForm(employeeForm);
+    this.closeDialogTrue();
   }
 
 
-  goToViewEmployees(){
-    this.resetForm();
-    this.router.navigate(['/view-employees']);
+
+
+  closeDialogTrue(){
+    this.dialog.close(true);
   }
 
-  
-  resetForm(employeeForm?: NgForm)
-  {
-    if(employeeForm != null)
-      employeeForm.reset();
-      this.employeeService.selectedEmployee = new Employee();
+
+  closeDialogFalse(){
+    this.dialog.close(false);
   }
 }
