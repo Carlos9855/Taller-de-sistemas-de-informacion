@@ -1,0 +1,72 @@
+$primary-color : #000000;
+$title-color: #303030;
+
+h1{
+    text-align: left;
+    font-weight: 1000;
+    font-size: 3.5vw;
+    font-weight: 700;
+    color: $title-color;
+}
+
+
+.grid-row{
+    padding-left: 1vw;
+    padding-right: 1vw;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    border: solid 1px #BABFC7;
+    background-color: #F8F8F8;
+    border-bottom: none;
+}
+
+.general-container{
+   
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-top: 1%;
+}
+
+
+.edit-button{
+    background-color: #4ECFAE;
+    color: rgb(255, 255, 255);
+    margin-left: 1%;
+    border: none;
+    padding: 2vh 2vw 2vh 2vw;
+    font-size: 1.2vw;
+    font-weight: 700;
+    border-radius: 0.5vw;
+}
+
+
+.addButtonContainer{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.inputContainer{
+    padding-top: 2%;
+}
+
+.inputClass{
+    
+    width: 100%;
+    background-color: #F8F8F8;
+    color: $title-color;
+    border: solid 0.1vw $title-color;
+    padding: 2vh 2vw 1.7vh 0.5vw;
+    border-top-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    &:focus{
+        outline: none;
+        border-bottom-style: solid;
+    }
+}
+
+.title-container{
+    background-color: none;
+}

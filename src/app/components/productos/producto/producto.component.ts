@@ -65,13 +65,13 @@ export class ProductoComponent implements OnInit{
  }
 
 
- closeDialogTrue(){
-  this.dialog.close(true);
-}
+  closeDialogTrue(){
+    this.dialog.close(true);
+  }
 
 
-closeDialogFalse(){
-  this.dialog.close(false);
-}
+  closeDialogFalse(){
+    this.dialog.close(false);
+  }
 
 }
