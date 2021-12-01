@@ -182,8 +182,8 @@ export class ViewProductsComponent implements OnInit{
       } 
       )
     .afterClosed()
-    .subscribe((confirmed:Boolean) => {
-      if(confirmed ==true){
+    .subscribe((confirmed: Boolean) => {
+      if(confirmed){
         this.toasterService.success('Se guardo exitosamente',{
           style: {
             border: '1px solid #737378',
