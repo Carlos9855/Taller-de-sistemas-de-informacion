@@ -55,6 +55,13 @@ import { ProductoMainDetailComponent } from './components/view-product/producto-
 import { HotToastModule } from '@ngneat/hot-toast';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CartComponent } from './components/cart/cart.component';
+import { ViewContactoComponent } from './components/contactos/view-contacto/view-contacto.component';
+import { AddContactoComponent } from './components/contactos/add-contacto/add-contacto.component';
+import { ViewOneContactoComponent } from './components/contactos/view-one-contacto/view-one-contacto.component';
+import { AddClienteComponent } from './components/cliente/add-cliente/add-cliente.component';
+import { ViewClienteComponent } from './components/cliente/view-cliente/view-cliente.component';
+import { ViewOneClienteComponent } from './components/cliente/view-one-cliente/view-one-cliente.component';
+
 
 
 const routes: Routes = [
@@ -80,6 +87,12 @@ const routes: Routes = [
     //ViewGeneralInformationComponent,
     //ProductoMainDetailComponent,
     ViewGeneralInformationComponent,
+    ViewContactoComponent,
+    AddContactoComponent,
+    ViewOneContactoComponent,
+    AddClienteComponent,
+    ViewClienteComponent,
+    ViewOneClienteComponent,
     ViewOneEmployeeComponent,
     DashboardComponent,
     CartComponent

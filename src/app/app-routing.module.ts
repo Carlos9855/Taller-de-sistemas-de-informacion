@@ -14,6 +14,11 @@ import { ProductoMainDetailComponent } from './components/view-product/producto-
 import { ViewOneEmployeeComponent } from './components/employees/view-one-employee/view-one-employee.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CartComponent } from './components/cart/cart.component';
+import { ViewContactoComponent } from './components/contactos/view-contacto/view-contacto.component';
+import { AddContactoComponent} from './components/contactos/add-contacto/add-contacto.component';
+import { AddClienteComponent } from './components/cliente/add-cliente/add-cliente.component';
+import { ViewClienteComponent } from './components/cliente/view-cliente/view-cliente.component';
+import { ViewOneClienteComponent } from './components/cliente/view-one-cliente/view-one-cliente.component';
 
 const routes: Routes = [
   {
@@ -38,6 +43,11 @@ const routes: Routes = [
   { path: 'Product-menu-detail',component:ProductoMainDetailComponent},
   { path: 'dashboard',component:DashboardComponent},
   { path: 'cart',component:CartComponent},
+  { path: 'contactos-view', component: ViewContactoComponent},
+  { path: 'add-contactos', component: AddContactoComponent },
+  { path: 'add-cliente', component: AddClienteComponent },
+  { path: 'view-cliente', component: ViewClienteComponent },
+  { path: 'view-one-cliente', component: ViewOneClienteComponent },
   {
     path: 'login',
     loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule)

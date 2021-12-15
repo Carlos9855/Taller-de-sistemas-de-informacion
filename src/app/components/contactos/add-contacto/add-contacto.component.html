@@ -1,0 +1,54 @@
+<form #contactoForm="ngForm">
+  <div class="row">
+      <div class="col-md-6 personal-column-container">
+          <h1>DATOS DE CONTACTO</h1>
+              <div class="form-group">
+                  <input type="text" placeholder="Nombres" class="input-form" name="Name" #Name="ngModel"
+                      [(ngModel)]="contactoService.selectedContacto.Name">
+              </div>
+
+
+      </div>
+
+      <div class="col-md-6 contact-column-container">
+          <h1>CONTACTO</h1>
+          <div class="form-group">
+
+              <input placeholder="Telefono fijo" type="text" class="input-form" name="Phone" #Phone="ngModel"
+              [(ngModel)]="contactoService.selectedContacto.Phone">
+              </div>
+          <div class="form-group">
+
+              <input type="email" placeholder="Correo electronico" class="input-form" name="Email" #Email="ngModel"
+              [(ngModel)]="contactoService.selectedContacto.Email">
+          </div>
+          <div class="form-group">
+
+              <input type="text" placeholder="Telefono movil" class="input-form" name="Cellphone" #Cellphone="ngModel"
+              [(ngModel)]="contactoService.selectedContacto.Cellphone">
+          </div>
+          <div class="form-group">
+
+              <input type="text" placeholder="Direccion" class="input-form" name="Address" #Address="ngModel"
+              [(ngModel)]="contactoService.selectedContacto.Address">
+          </div>
+
+          <div class="row">
+              <div class="col-6">
+                  <div class="cancel-button" (click)="closeDialogFalse()">
+                      <p class="btn-content">Cancelar</p>
+                  </div>
+              </div>
+              <div class="col-6">
+                  <div class="save-button" (click)="onSubmit(contactoForm)">
+                      <p class="btn-content">Guardar</p>
+                  </div>
+              </div>
+
+          </div>
+
+
+      </div>
+
+  </div>
+</form>
