@@ -22,15 +22,19 @@
                   <p class="label-price">Precio (Bs): <span class="number-price">{{product.Price}}</span></p>
               </div>
 
-              <div class="button-container">
-                  <div class="technical-specifications" (click) = "goToSpecifications()">Especificaciones tecnicas</div>
-              </div>
+   
               <div class="amount-container">
                   <p class="label-amount">Unidades Disponibles: <span class="avaiable-amount">{{product.Amount}}</span></p>
               </div>
-              <div class="add-button-container">
-                  <button class="add-car-btn">+ Agregar al carrito</button>
+              <div class="button-section-grid">
+                <div class="button-container">
+                    <div class="technical-specifications" (click) = "goToSpecifications()">Especificaciones tecnicas</div>
+                </div>
+                <div class="add-button-container">
+                    <button class="add-car-btn" (click) = "addToCart(product)">+ Agregar al carrito</button>
+                </div>
               </div>
+ 
           </div>
 
 

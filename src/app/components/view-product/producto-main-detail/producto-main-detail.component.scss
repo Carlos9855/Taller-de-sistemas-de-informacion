@@ -67,6 +67,7 @@
 
       .amount-container{
           margin: 2vw 3vw;
+          margin-top: 6vh;
           .label-amount{
               @include label-template;
           }
@@ -80,47 +81,53 @@
 
       .price-container{
           @extend .amount-container;
+          margin-top: 6vh;
           .label-price{
               @include label-template;
           }
           .number-price{
               @extend .avaiable-amount;
-              background-color: #74c0bc;
-              color: rgb(255, 255, 255);
+              background-color: #ffffff;
+              margin-left: 7.5vw;
+              color: 737378;
           }
 
       }
 
       .button-container{
-          margin-left: 3vw;
-          margin-right: 17vw;
+         
           text-align: center;
+       
 
           .button-template{
               padding: 0.2vw 0.5vw;
-              border-radius: 0.3vw;
+              border-radius: 0.5vw;
+              height: 100%;
+              display: flex;
+              vertical-align: center;
+              text-align: center;
               @include label-template;
+              font-size: 1.3vw;
               color: rgb(246, 251, 255);
               cursor: pointer;
           }
 
           .technical-specifications{
               @extend .button-template;
-              background-color: #CA8181;
+              background-color: #3BBACC;
           }
       }
 
 
       .add-button-container{
-          text-align: center;
-          padding-top: 2.3vh;
+        
           .add-car-btn{
               padding:1vw 1.5vw;
               font-size: 1.5vw;
               font-weight: 600;
               border-radius: 0.5vw;
-              background-color: #7AC074;
-              border: none;
+              background-color: #4ECFAE;
+              border: 0px;
               color: rgb(248, 252, 255);
           }
       }
@@ -143,4 +150,13 @@
 
           }
       }
+  }
+
+
+  .button-section-grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 1.5vw;
+      padding-top: 4vh;
+
   }

@@ -1,6 +1,7 @@
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule} from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { FormsModule } from '@angular/forms';
 import { AgGridModule } from 'ag-grid-angular';
@@ -52,6 +53,8 @@ import {MatGridListModule} from '@angular/material/grid-list'
 import {MatListModule} from '@angular/material/list';
 import { ProductoMainDetailComponent } from './components/view-product/producto-main-detail/producto-main-detail.component';
 import { HotToastModule } from '@ngneat/hot-toast';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { CartComponent } from './components/cart/cart.component';
 
 
 const routes: Routes = [
@@ -77,7 +80,9 @@ const routes: Routes = [
     //ViewGeneralInformationComponent,
     //ProductoMainDetailComponent,
     ViewGeneralInformationComponent,
-    ViewOneEmployeeComponent
+    ViewOneEmployeeComponent,
+    DashboardComponent,
+    CartComponent
 
 
   ],
@@ -99,7 +104,8 @@ const routes: Routes = [
     MatSidenavModule,
     MatGridListModule,
     MatListModule,
-    HotToastModule.forRoot()
+    HotToastModule.forRoot(),
+    HttpClientModule
   ],
   providers: [
     ProductoService

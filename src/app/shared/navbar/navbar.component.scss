@@ -17,6 +17,7 @@ $gray-color: #C2C2C7;
     color: $title-color;
     font-weight: 400;
     font-size: 1.1vw;
+    padding-left: 2vw;
 }
 
 .enterprise-name-container{
@@ -53,6 +54,29 @@ $gray-color: #C2C2C7;
 
 
 .home-image{
-    width: 50%;
-    height: 50%;  
+    width: 60%;
+    height: 60%;  
 }
+
+
+.cart-container{
+    @extend .home-container;
+    background-color: #4ECFAE;
+    .cart-image{
+        width: 70%;
+        height: 70%;  
+    }
+    
+}
+
+
+.dashboard-container{
+    @extend .home-container;
+    background-color: #E5CA66;
+    .dash-image{
+        width: 60%;
+        height: 60%;  
+    }
+    
+}
+

@@ -5,7 +5,7 @@ mat-sidenav-container{
 }
 
 mat-sidenav,mat-sidenav-content{
-  padding:16px;
+  padding:2vw;
 }
 
 mat-sidenav{
@@ -14,13 +14,13 @@ mat-sidenav{
 }
 
 mat-card{
-  width: 800px;
-  height: 1000px;
+  width: 20xw;
+  height: 20hw;
 }
 
 img{
   border-radius: 8px;
   max-width: 100%;
   height: auto;
-  width: 100%;
+  width: 30vw;
 }
