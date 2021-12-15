@@ -13,6 +13,20 @@
             </div>
           </div>
         </li>
+        <li class="white-text" *ngIf="user">
+          <div routerLink="/cart" class="cart-container">
+            <div>
+              <img src="/assets/images/cart.png" alt="alt" class="cart-image" >
+            </div>
+          </div>
+        </li>
+        <li class="white-text" *ngIf="user">
+          <div routerLink="/dashboard" class="dashboard-container">
+            <div>
+              <img src="/assets/images/dashboard.png" alt="alt" class="dash-image" >
+            </div>
+          </div>
+        </li>
         <!--<li class="nav-item dropdown" *ngIf="user">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">MENU</a>
           <div class="dropdown-menu">

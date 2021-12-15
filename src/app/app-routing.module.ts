@@ -12,6 +12,8 @@ import { CategoriesMainMenuComponent } from './components/categories/categories-
 import { ProductosMainMenuComponent} from './components/productos/productos-main-menu/productos-main-menu.component';
 import { ProductoMainDetailComponent } from './components/view-product/producto-main-detail/producto-main-detail.component';
 import { ViewOneEmployeeComponent } from './components/employees/view-one-employee/view-one-employee.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { CartComponent } from './components/cart/cart.component';
 
 const routes: Routes = [
   {
@@ -34,6 +36,8 @@ const routes: Routes = [
   { path: 'categories-sidenav',component:CategoriesSidebarComponent},
   { path: 'Product-menu',component:ProductosMainMenuComponent},
   { path: 'Product-menu-detail',component:ProductoMainDetailComponent},
+  { path: 'dashboard',component:DashboardComponent},
+  { path: 'cart',component:CartComponent},
   {
     path: 'login',
     loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule)

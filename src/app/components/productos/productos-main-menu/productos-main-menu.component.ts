@@ -6,6 +6,7 @@ import { ProductoService } from 'src/app/services/producto.service';
 import { IconRendererComponent } from '../../icon-renderer/icon-renderer.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ProductoMainDetailComponent } from '../../view-product/producto-main-detail/producto-main-detail.component';
+import { HotToastService } from '@ngneat/hot-toast';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class ProductosMainMenuComponent implements OnInit {
     public productService: ProductoService,
     private router: Router,
     public dialog: MatDialog,
+    private toastService: HotToastService
   ) { }
 
 ngOnInit(): void {
@@ -47,7 +49,22 @@ goToSomePage(product){
      data: product,
      width: '100vw',
      height: '90vh',
-    } );
+    } ).afterClosed().subscribe(confirm => {
+      if(confirm){
+        this.toastService.success('Se agrego al carrito',{
+          style: {
+            border: '1px solid #737378',
+            padding: '16px',
+            color: '#737378',
+            fontWeight: '500'
+          },
+          iconTheme: {
+            primary: '#4ECFAE',
+            secondary: '#FFFAEE',
+          },
+        });
+      }
+    });
 
   }
 }

@@ -1,0 +1,31 @@
+
+<div class="cart-container">
+    <div class="title-container">
+        <h1 class="title">CARRITO DE COMPRASL</h1>
+        <div class="title-decorator"></div>
+      </div>
+
+    <div class="list-container">
+        <div class="block-container-title">
+            <div class="six-colum-grid">
+                <p class="title title-name">Producto</p>
+                <p class="title title-price">Precio</p>
+                <p class="title title-amount">Cantdad</p>
+                <p class="title title-subtotal">Subtotal</p>
+            </div>
+        </div>
+        <div class="block-container-items" *ngFor="let c of this.cart">
+            <div class="six-colum-grid">
+                <p class="text title-name"> {{ c.Name }}</p>
+                <p class="text title-price">{{ c.Price }}</p>
+                <p class="text title-amount">{{ c.Amount }}</p>
+                <p class="text title-subtotal">{{c.Amount * c.Price}}</p>
+            </div>
+        </div>
+        <div class="button-container">
+            <button class="finalizar" (click) = "registerSales()">Finalizar compra</button>
+        </div>
+    </div>
+  
+</div>
+
